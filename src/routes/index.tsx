@@ -65,12 +65,6 @@ const systems = [
     desc: "Allopathic consultation, chronic disease management and integrative care planning.",
     img: sysMedicine,
   },
-  {
-    code: "09 / DX",
-    name: "Advanced Diagnostics",
-    desc: "Imaging, pathology and clinical assessment to quantify and guide every healing protocol.",
-    img: sysDiagnostics,
-  },
 ];
 
 function Index() {
