@@ -7,7 +7,7 @@ import sysSiddha from "@/assets/sys-siddha.jpg";
 import sysAcupuncture from "@/assets/sys-acupuncture.jpg";
 import sysChiropractic from "@/assets/sys-chiropractic.jpg";
 import sysNaturopathy from "@/assets/sys-naturopathy.jpg";
-import sysDiagnostics from "@/assets/sys-diagnostics.jpg";
+
 import sysPhysiotherapy from "@/assets/sys-physiotherapy.jpg";
 import sysRehabilitation from "@/assets/sys-rehabilitation.jpg";
 import sysMedicine from "@/assets/sys-medicine.jpg";
