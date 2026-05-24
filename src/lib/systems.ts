@@ -22,14 +22,14 @@ export type System = {
 
 export const systems: System[] = [
   {
-    slug: "kerala-ayurveda",
-    code: "01 / VEDA",
-    name: "Kerala Ayurveda",
+    slug: "ayurveda",
+    code: "01 / AYU",
+    name: "Ayurveda",
     desc: "Authentic Panchakarma detoxification and rejuvenation protocols, supervised by classically trained vaidyas.",
     img: sysAyurveda,
-    tagline: "Classical Panchakarma, clinically supervised.",
+    tagline: "Classical rejuvenation, clinically supervised.",
     intro:
-      "Our Kerala Ayurveda department offers authentic Panchakarma — the five-fold detoxification system codified in classical texts — delivered by traditionally trained vaidyas alongside modern physiological monitoring.",
+      "Our Ayurveda department offers authentic Panchakarma — the five-fold detoxification system codified in classical texts — delivered by traditionally trained vaidyas alongside modern physiological monitoring.",
     treatments: [
       "Panchakarma (Vamana, Virechana, Basti, Nasya, Raktamokshana)",
       "Abhyanga & Shirodhara",
@@ -47,8 +47,35 @@ export const systems: System[] = [
       "Every protocol begins with a prakriti (constitution) assessment and is reviewed in tandem with our diagnostics team so traditional therapy is grounded in measurable outcomes.",
   },
   {
+    slug: "keraleya-panchakarma",
+    code: "02 / PK",
+    name: "Keraleya Panchakarma",
+    desc: "The five-fold purification and detoxification system from Kerala tradition, delivered under strict medical supervision.",
+    img: sysAyurveda,
+    tagline: "Purification as precision medicine.",
+    intro:
+      "Our Keraleya Panchakarma unit specialises in the classical five-fold detoxification system — Vamana, Virechana, Basti, Nasya and Raktamokshana — delivered by traditionally trained therapists under modern clinical monitoring.",
+    treatments: [
+      "Vamana (therapeutic emesis)",
+      "Virechana (therapeutic purgation)",
+      "Basti (medicated enema therapy)",
+      "Nasya (nasal administration)",
+      "Raktamokshana (bloodletting therapy)",
+      "Snehana & Swedana (oleation & fomentation)",
+    ],
+    conditions: [
+      "Chronic skin disorders",
+      "Digestive and metabolic disorders",
+      "Autoimmune conditions",
+      "Detoxification and rejuvenation",
+      "Lifestyle disease management",
+    ],
+    approach:
+      "Each Panchakarma protocol is preceded by a thorough clinical assessment and coordinated with our modern medicine team to ensure safety and measurable outcomes.",
+  },
+  {
     slug: "siddha-medicine",
-    code: "02 / SIDDHA",
+    code: "03 / SIDDHA",
     name: "Siddha Medicine",
     desc: "Time-honoured Tamil therapies integrated with modern metabolic and lifestyle screening.",
     img: sysSiddha,
