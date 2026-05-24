@@ -72,11 +72,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Bluemount Hospital — Integrated Medical Sciences" },
+      {
+        name: "description",
+        content:
+          "Bluemount Hospital fuses advanced diagnostics with Ayurveda, Siddha, Acupuncture, Chiropractic and Naturopathy for precise, integrated healing.",
+      },
+      { name: "author", content: "Bluemount Hospital" },
+      { property: "og:title", content: "Bluemount Hospital — Integrated Medical Sciences" },
+      {
+        property: "og:description",
+        content:
+          "Advanced diagnostics meets traditional healing. Integrated care across Ayurveda, Siddha, Acupuncture, Chiropractic and Naturopathy.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -85,6 +93,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap",
       },
     ],
   }),
