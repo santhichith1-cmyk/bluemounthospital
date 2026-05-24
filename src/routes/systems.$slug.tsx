@@ -1,6 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getSystem, systems } from "@/lib/systems";
 import logo from "@/assets/logo.avif";
+import { motion } from "framer-motion";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/systems/$slug")({
   loader: ({ params }) => {
@@ -61,9 +63,16 @@ function SystemPage() {
         </div>
       </nav>
 
-      <header className="px-6 pt-24 pb-16">
+      <header className="relative px-6 pt-24 pb-16 overflow-hidden bg-grad-radial">
+        <div aria-hidden className="pointer-events-none absolute -top-32 -left-24 size-[420px] rounded-full bg-primary/10 blur-3xl float-slow" />
+        <div aria-hidden className="pointer-events-none absolute top-20 -right-24 size-[360px] rounded-full bg-accent/10 blur-3xl float-slower" />
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-end">
-          <div className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 relative"
+          >
             <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary mb-6 block">
               {system.code}
             </span>
@@ -73,21 +82,27 @@ function SystemPage() {
             <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
               {system.tagline}
             </p>
-          </div>
-          <div className="lg:col-span-5">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-2xl rounded-sm" aria-hidden />
             <img
               src={system.img}
               alt={system.name}
               width={768}
               height={512}
-              className="w-full aspect-[4/3] object-cover ring-1 ring-black/5 rounded-sm shadow-2xl"
+              className="relative w-full aspect-[4/3] object-cover ring-1 ring-black/5 rounded-sm shadow-2xl"
             />
-          </div>
+          </motion.div>
         </div>
       </header>
 
       <section className="px-6 py-20 bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12">
+        <Reveal className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent mb-6 block">
               Overview
@@ -104,76 +119,99 @@ function SystemPage() {
               Conditions Treated
             </h3>
             <ul className="space-y-3">
-              {system.conditions.map((c: string) => (
-                <li key={c} className="flex gap-3 text-sm">
+              {system.conditions.map((c: string, i: number) => (
+                <motion.li
+                  key={c}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  className="flex gap-3 text-sm"
+                >
                   <span className="text-primary font-mono">—</span>
                   <span>{c}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </aside>
-        </div>
+        </Reveal>
       </section>
 
       <section className="px-6 py-24">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-end mb-12 flex-wrap gap-4">
+          <Reveal className="flex justify-between items-end mb-12 flex-wrap gap-4">
             <h2 className="font-serif text-4xl">Treatments & Therapies</h2>
             <span className="font-mono text-xs text-muted-foreground">
               [{system.treatments.length} OFFERINGS]
             </span>
-          </div>
+          </Reveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
             {system.treatments.map((t: string, i: number) => (
-              <div key={t} className="bg-card p-8">
+              <motion.div
+                key={t}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
+                className="bg-card p-8 card-lift group"
+              >
                 <span className="font-mono text-[10px] text-muted-foreground mb-4 block">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="font-serif text-xl">{t}</p>
-              </div>
+                <p className="font-serif text-xl group-hover:text-primary transition-colors duration-500">{t}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       <section className="px-6 py-20 bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <Reveal className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <h2 className="font-serif text-4xl md:text-5xl leading-tight max-w-xl">
-            Consult with our <span className="italic text-primary">{system.name}</span> team.
+            Consult with our <span className="italic text-shimmer">{system.name}</span> team.
           </h2>
           <div className="flex flex-col gap-4 lg:items-end">
             <a href="tel:+918618249192" className="font-mono text-lg md:text-xl tracking-tight">
               +91 86182 49192
             </a>
-            <a
+            <motion.a
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
               href="tel:+918618249192"
-              className="inline-block px-8 py-4 bg-foreground text-background text-sm font-medium uppercase tracking-widest hover:bg-primary transition-colors w-fit"
+              className="inline-block px-8 py-4 bg-foreground text-background text-sm font-medium uppercase tracking-widest hover:bg-primary transition-colors w-fit shadow-xl shadow-primary/20"
             >
               Book Appointment
-            </a>
+            </motion.a>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section className="px-6 py-24">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-serif text-3xl mb-10">Explore other systems</h2>
+          <Reveal><h2 className="font-serif text-3xl mb-10">Explore other systems</h2></Reveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
-            {others.map((o) => (
-              <Link
+            {others.map((o, i) => (
+              <motion.div
                 key={o.slug}
-                to="/systems/$slug"
-                params={{ slug: o.slug }}
-                className="bg-card p-8 group hover:bg-secondary transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
               >
-                <span className="font-mono text-[10px] text-muted-foreground mb-4 block">
-                  {o.code}
-                </span>
-                <h3 className="font-serif text-xl mb-3">{o.name}</h3>
-                <span className="text-xs font-mono uppercase tracking-widest text-primary border-b border-primary/30 pb-1 group-hover:border-primary">
-                  Explore →
-                </span>
-              </Link>
+                <Link
+                  to="/systems/$slug"
+                  params={{ slug: o.slug }}
+                  className="block bg-card p-8 group hover:bg-secondary transition-colors card-lift"
+                >
+                  <span className="font-mono text-[10px] text-muted-foreground mb-4 block">
+                    {o.code}
+                  </span>
+                  <h3 className="font-serif text-xl mb-3 group-hover:text-primary transition-colors">{o.name}</h3>
+                  <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-primary border-b border-primary/30 pb-1 group-hover:border-primary">
+                    Explore <span className="transition-transform group-hover:translate-x-1">→</span>
+                  </span>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
