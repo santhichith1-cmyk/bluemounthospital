@@ -167,3 +167,49 @@
     animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
+
+@keyframes floatSlow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -30px) scale(1.05); }
+}
+@keyframes floatSlower {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 20px) scale(1.08); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 oklch(0.55 0.215 263 / 0.4); }
+  70% { box-shadow: 0 0 0 12px oklch(0.55 0.215 263 / 0); }
+  100% { box-shadow: 0 0 0 0 oklch(0.55 0.215 263 / 0); }
+}
+
+@layer utilities {
+  .float-slow { animation: floatSlow 14s ease-in-out infinite; }
+  .float-slower { animation: floatSlower 18s ease-in-out infinite; }
+  .pulse-ring { animation: pulseRing 2.4s cubic-bezier(0.66, 0, 0, 1) infinite; }
+  .text-shimmer {
+    background: linear-gradient(90deg, var(--foreground) 0%, var(--primary) 50%, var(--foreground) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+  .bg-grad-radial {
+    background:
+      radial-gradient(60% 50% at 20% 10%, oklch(0.55 0.215 263 / 0.10), transparent 60%),
+      radial-gradient(50% 40% at 90% 30%, oklch(0.46 0.12 60 / 0.08), transparent 60%);
+  }
+  .card-lift {
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px -30px oklch(0.205 0.04 264 / 0.25);
+  }
+}
+
+html { scroll-behavior: smooth; }
