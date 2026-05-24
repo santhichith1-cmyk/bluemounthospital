@@ -63,25 +63,26 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  /* Bluemount — Clinical Sanctuary palette */
+  --background: oklch(0.984 0.005 240);            /* #F8FAFC ice */
+  --foreground: oklch(0.205 0.04 264);             /* #0F172A navy */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.205 0.04 264);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.205 0.04 264);
+  --primary: oklch(0.55 0.215 263);                /* #2563EB clinical blue */
+  --primary-foreground: oklch(0.984 0.005 240);
+  --secondary: oklch(0.96 0.01 240);
+  --secondary-foreground: oklch(0.205 0.04 264);
+  --muted: oklch(0.96 0.01 240);
+  --muted-foreground: oklch(0.5 0.03 256);         /* #64748B slate */
+  --accent: oklch(0.46 0.12 60);                   /* #92400E warm brass */
+  --accent-foreground: oklch(0.984 0.005 240);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.205 0.04 264 / 0.08);
+  --input: oklch(0.205 0.04 264 / 0.12);
+  --ring: oklch(0.55 0.215 263);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +141,29 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-serif {
+    font-family: 'Libre Baskerville', ui-serif, Georgia, serif;
+  }
+  .font-mono {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  ::selection {
+    background: oklch(0.55 0.215 263 / 0.15);
+  }
+}
+
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@layer utilities {
+  .animate-reveal {
+    animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
