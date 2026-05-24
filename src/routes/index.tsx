@@ -7,7 +7,7 @@ import sysSiddha from "@/assets/sys-siddha.jpg";
 import sysAcupuncture from "@/assets/sys-acupuncture.jpg";
 import sysChiropractic from "@/assets/sys-chiropractic.jpg";
 import sysNaturopathy from "@/assets/sys-naturopathy.jpg";
-import sysDiagnostics from "@/assets/sys-diagnostics.jpg";
+
 import sysPhysiotherapy from "@/assets/sys-physiotherapy.jpg";
 import sysRehabilitation from "@/assets/sys-rehabilitation.jpg";
 import sysMedicine from "@/assets/sys-medicine.jpg";
@@ -64,12 +64,6 @@ const systems = [
     name: "Modern Clinical Medicine",
     desc: "Allopathic consultation, chronic disease management and integrative care planning.",
     img: sysMedicine,
-  },
-  {
-    code: "09 / DX",
-    name: "Advanced Diagnostics",
-    desc: "Imaging, pathology and clinical assessment to quantify and guide every healing protocol.",
-    img: sysDiagnostics,
   },
 ];
 
@@ -147,7 +141,7 @@ function Index() {
                 Unified disciplines working in clinical concert.
               </p>
             </div>
-            <span className="font-mono text-xs text-muted-foreground mb-2">[9 DEPARTMENTS]</span>
+            <span className="font-mono text-xs text-muted-foreground mb-2">[8 DEPARTMENTS]</span>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
@@ -160,9 +154,15 @@ function Index() {
                   {s.code}
                 </span>
                 <h3 className="font-serif text-2xl mb-4">{s.name}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   {s.desc}
                 </p>
+                <a
+                  href="#book"
+                  className="inline-block mb-6 text-xs font-mono uppercase tracking-widest text-primary border-b border-primary/30 pb-1 hover:border-primary transition-colors"
+                >
+                  Explore
+                </a>
                 <img
                   src={s.img}
                   alt={s.name}
