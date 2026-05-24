@@ -99,7 +99,7 @@ export const systems: System[] = [
   },
   {
     slug: "acupuncture",
-    code: "03 / ACU",
+    code: "04 / ACU",
     name: "Acupuncture",
     desc: "Precise meridian-mapped neuromuscular stimulation for chronic pain and neurological recovery.",
     img: sysAcupuncture,
@@ -125,7 +125,7 @@ export const systems: System[] = [
   },
   {
     slug: "chiropractic-care",
-    code: "04 / CHIRO",
+    code: "05 / CHIRO",
     name: "Chiropractic Care",
     desc: "Evidence-based spinal alignment therapy for long-term structural and postural health.",
     img: sysChiropractic,
@@ -149,7 +149,7 @@ export const systems: System[] = [
   },
   {
     slug: "naturopathy",
-    code: "05 / NATURO",
+    code: "06 / NATURO",
     name: "Naturopathy",
     desc: "Bio-dynamic nutrition, hydrotherapy and lifestyle medicine for sustainable wellness.",
     img: sysNaturopathy,
@@ -173,7 +173,7 @@ export const systems: System[] = [
   },
   {
     slug: "physiotherapy",
-    code: "06 / PHYSIO",
+    code: "07 / PHYSIO",
     name: "Physiotherapy",
     desc: "Movement-based recovery programs for musculoskeletal injury, mobility and pain relief.",
     img: sysPhysiotherapy,
@@ -198,7 +198,7 @@ export const systems: System[] = [
   },
   {
     slug: "neuro-rehabilitation",
-    code: "07 / REHAB",
+    code: "08 / REHAB",
     name: "Neuro Rehabilitation",
     desc: "Medically supervised neurological rehabilitation for stroke, spinal and post-surgical recovery.",
     img: sysRehabilitation,
@@ -223,7 +223,7 @@ export const systems: System[] = [
   },
   {
     slug: "modern-clinical-medicine",
-    code: "08 / MED",
+    code: "09 / MED",
     name: "Modern Clinical Medicine",
     desc: "Allopathic consultation, chronic disease management and integrative care planning.",
     img: sysMedicine,
