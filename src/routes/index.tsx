@@ -1,12 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroAtrium from "@/assets/hero-atrium.jpg";
 import philosophyImg from "@/assets/philosophy.jpg";
+import logo from "@/assets/logo.avif";
 import sysAyurveda from "@/assets/sys-ayurveda.jpg";
 import sysSiddha from "@/assets/sys-siddha.jpg";
 import sysAcupuncture from "@/assets/sys-acupuncture.jpg";
 import sysChiropractic from "@/assets/sys-chiropractic.jpg";
 import sysNaturopathy from "@/assets/sys-naturopathy.jpg";
 import sysDiagnostics from "@/assets/sys-diagnostics.jpg";
+import sysPhysiotherapy from "@/assets/sys-physiotherapy.jpg";
+import sysRehabilitation from "@/assets/sys-rehabilitation.jpg";
+import sysMedicine from "@/assets/sys-medicine.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -16,37 +20,55 @@ const systems = [
   {
     code: "01 / VEDA",
     name: "Kerala Ayurveda",
-    desc: "Panchakarma and rejuvenation protocols tailored to genomic markers.",
+    desc: "Authentic Panchakarma detoxification and rejuvenation protocols, supervised by classically trained vaidyas.",
     img: sysAyurveda,
   },
   {
     code: "02 / SIDDHA",
     name: "Siddha Medicine",
-    desc: "Ancient mineral-based therapies integrated with modern metabolic screening.",
+    desc: "Time-honoured Tamil therapies integrated with modern metabolic and lifestyle screening.",
     img: sysSiddha,
   },
   {
     code: "03 / ACU",
     name: "Acupuncture",
-    desc: "Neuromuscular stimulation using precise meridian mapping and data.",
+    desc: "Precise meridian-mapped neuromuscular stimulation for chronic pain and neurological recovery.",
     img: sysAcupuncture,
   },
   {
     code: "04 / CHIRO",
-    name: "Chiropractic",
-    desc: "Evidence-based structural correction for long-term spinal health.",
+    name: "Chiropractic Care",
+    desc: "Evidence-based spinal alignment therapy for long-term structural and postural health.",
     img: sysChiropractic,
   },
   {
     code: "05 / NATURO",
     name: "Naturopathy",
-    desc: "Bio-dynamic nutrition and hydrotherapy for metabolic optimization.",
+    desc: "Bio-dynamic nutrition, hydrotherapy and lifestyle medicine for sustainable wellness.",
     img: sysNaturopathy,
   },
   {
-    code: "06 / DX",
-    name: "Diagnostics",
-    desc: "AI-driven imaging and pathology to quantify your healing journey.",
+    code: "06 / PHYSIO",
+    name: "Physiotherapy",
+    desc: "Movement-based recovery programs for musculoskeletal injury, mobility and pain relief.",
+    img: sysPhysiotherapy,
+  },
+  {
+    code: "07 / REHAB",
+    name: "Neuro Rehabilitation",
+    desc: "Medically supervised neurological rehabilitation for stroke, spinal and post-surgical recovery.",
+    img: sysRehabilitation,
+  },
+  {
+    code: "08 / MED",
+    name: "Modern Clinical Medicine",
+    desc: "Allopathic consultation, chronic disease management and integrative care planning.",
+    img: sysMedicine,
+  },
+  {
+    code: "09 / DX",
+    name: "Advanced Diagnostics",
+    desc: "Imaging, pathology and clinical assessment to quantify and guide every healing protocol.",
     img: sysDiagnostics,
   },
 ];
@@ -58,17 +80,15 @@ function Index() {
       <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3">
-            <div className="size-10 bg-foreground flex items-center justify-center">
-              <div className="size-4 border-2 border-background rotate-45" />
-            </div>
-            <span className="font-mono text-sm tracking-tighter font-medium uppercase leading-tight">
-              Bluemount<br />Hospital
+            <img src={logo} alt="Bluemount Hospital" width={40} height={40} className="size-10 object-contain" />
+            <span className="font-mono text-[11px] tracking-tighter font-medium uppercase leading-tight">
+              Bluemount Hospital<br /><span className="text-muted-foreground">& Research Institute</span>
             </span>
           </a>
           <div className="hidden md:flex items-center gap-10 text-[13px] font-medium uppercase tracking-widest text-muted-foreground">
             <a href="#systems" className="hover:text-foreground transition-colors">Systems</a>
             <a href="#philosophy" className="hover:text-foreground transition-colors">Philosophy</a>
-            <a href="#specialists" className="hover:text-foreground transition-colors">Specialists</a>
+            <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
             <a href="#book" className="text-foreground font-bold border-b border-primary pb-1">Book Now</a>
           </div>
           <a href="tel:+918618249192" className="hidden sm:block text-sm font-mono font-medium">
@@ -88,7 +108,7 @@ function Index() {
               Healing is a <span className="text-primary not-italic">deliberate</span> precision.
             </h1>
             <p className="max-w-md text-lg text-muted-foreground leading-relaxed text-pretty mb-10">
-              Where advanced diagnostic technology meets the foundational wisdom of Ayurveda, Siddha and Naturopathy.
+              Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Naturopathy and rehabilitation science — under one integrated roof in Mysuru.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -127,7 +147,7 @@ function Index() {
                 Unified disciplines working in clinical concert.
               </p>
             </div>
-            <span className="font-mono text-xs text-muted-foreground mb-2">[6 DEPARTMENTS]</span>
+            <span className="font-mono text-xs text-muted-foreground mb-2">[9 DEPARTMENTS]</span>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
@@ -177,7 +197,7 @@ function Index() {
                 Bridging the gap between ancient intuition and modern proof.
               </h2>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Bluemount was founded on a singular premise: that true healing is neither purely technological nor purely traditional. It is the synthesis of both. We measure efficacy through clinical markers while honoring the subtle rhythms of the human system.
+                Bluemount Hospital & Research Institute was founded on a singular premise: that true healing is neither purely technological nor purely traditional — it is the synthesis of both. We treat the root cause through evidence-based natural therapies, medically supervised recovery and advanced diagnostics.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start gap-4 pb-6 border-b border-border">
@@ -228,19 +248,17 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer id="specialists" className="bg-foreground text-background/80 py-24 px-6">
+      <footer id="contact" className="bg-foreground text-background/80 py-24 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-8">
-              <div className="size-8 bg-background flex items-center justify-center">
-                <div className="size-3 border-2 border-foreground rotate-45" />
-              </div>
+              <img src={logo} alt="" width={32} height={32} className="size-8 object-contain bg-background rounded-sm p-1" />
               <span className="font-mono text-xs uppercase tracking-tighter">
-                Bluemount Hospital
+                Bluemount Hospital<br />& Research Institute
               </span>
             </div>
             <p className="max-w-xs text-sm text-background/50 leading-relaxed">
-              Integrated medical center for diagnostics and restorative healing.
+              An integrative healthcare and wellness institution in Mysuru combining traditional sciences with modern clinical medicine.
             </p>
           </div>
           <div>
@@ -248,11 +266,14 @@ function Index() {
               Contact
             </h3>
             <address className="not-italic text-sm space-y-2 text-background/60">
-              122 West Mount Road
+              Ring Road, opposite VTU Mysore
               <br />
-              Coimbatore, TN 641002
+              Regional Centre, Sathagalli Layout,
               <br />
-              <span className="block pt-4">info@bluemount.med</span>
+              Rammanahalli, Mysuru,
+              <br />
+              Karnataka 570019, India
+              <br />
               <span>+91 86182 49192</span>
             </address>
           </div>
@@ -274,7 +295,7 @@ function Index() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-background/10 flex flex-wrap gap-4 justify-between items-center text-[10px] font-mono uppercase tracking-widest opacity-40">
-          <span>© {new Date().getFullYear()} Bluemount Integrated</span>
+          <span>© {new Date().getFullYear()} Bluemount Hospital & Research Institute</span>
           <span>Precision. Presence. Peace.</span>
         </div>
       </footer>
