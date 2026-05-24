@@ -1,71 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroAtrium from "@/assets/hero-atrium.jpg";
 import philosophyImg from "@/assets/philosophy.jpg";
 import logo from "@/assets/logo.avif";
-import sysAyurveda from "@/assets/sys-ayurveda.jpg";
-import sysSiddha from "@/assets/sys-siddha.jpg";
-import sysAcupuncture from "@/assets/sys-acupuncture.jpg";
-import sysChiropractic from "@/assets/sys-chiropractic.jpg";
-import sysNaturopathy from "@/assets/sys-naturopathy.jpg";
-
-import sysPhysiotherapy from "@/assets/sys-physiotherapy.jpg";
-import sysRehabilitation from "@/assets/sys-rehabilitation.jpg";
-import sysMedicine from "@/assets/sys-medicine.jpg";
+import { systems } from "@/lib/systems";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
-
-const systems = [
-  {
-    code: "01 / VEDA",
-    name: "Kerala Ayurveda",
-    desc: "Authentic Panchakarma detoxification and rejuvenation protocols, supervised by classically trained vaidyas.",
-    img: sysAyurveda,
-  },
-  {
-    code: "02 / SIDDHA",
-    name: "Siddha Medicine",
-    desc: "Time-honoured Tamil therapies integrated with modern metabolic and lifestyle screening.",
-    img: sysSiddha,
-  },
-  {
-    code: "03 / ACU",
-    name: "Acupuncture",
-    desc: "Precise meridian-mapped neuromuscular stimulation for chronic pain and neurological recovery.",
-    img: sysAcupuncture,
-  },
-  {
-    code: "04 / CHIRO",
-    name: "Chiropractic Care",
-    desc: "Evidence-based spinal alignment therapy for long-term structural and postural health.",
-    img: sysChiropractic,
-  },
-  {
-    code: "05 / NATURO",
-    name: "Naturopathy",
-    desc: "Bio-dynamic nutrition, hydrotherapy and lifestyle medicine for sustainable wellness.",
-    img: sysNaturopathy,
-  },
-  {
-    code: "06 / PHYSIO",
-    name: "Physiotherapy",
-    desc: "Movement-based recovery programs for musculoskeletal injury, mobility and pain relief.",
-    img: sysPhysiotherapy,
-  },
-  {
-    code: "07 / REHAB",
-    name: "Neuro Rehabilitation",
-    desc: "Medically supervised neurological rehabilitation for stroke, spinal and post-surgical recovery.",
-    img: sysRehabilitation,
-  },
-  {
-    code: "08 / MED",
-    name: "Modern Clinical Medicine",
-    desc: "Allopathic consultation, chronic disease management and integrative care planning.",
-    img: sysMedicine,
-  },
-];
 
 function Index() {
   return (
@@ -147,7 +88,7 @@ function Index() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
             {systems.map((s) => (
               <article
-                key={s.code}
+                key={s.slug}
                 className="bg-card p-10 group hover:bg-secondary transition-colors cursor-pointer"
               >
                 <span className="font-mono text-[10px] text-muted-foreground mb-8 block">
@@ -157,12 +98,13 @@ function Index() {
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   {s.desc}
                 </p>
-                <a
-                  href="#book"
+                <Link
+                  to="/systems/$slug"
+                  params={{ slug: s.slug }}
                   className="inline-block mb-6 text-xs font-mono uppercase tracking-widest text-primary border-b border-primary/30 pb-1 hover:border-primary transition-colors"
                 >
-                  Explore
-                </a>
+                  Explore →
+                </Link>
                 <img
                   src={s.img}
                   alt={s.name}
