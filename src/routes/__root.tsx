@@ -72,18 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Bluemount Hospital — Integrated Medical Sciences" },
+      { title: "Bluemount Hospital & Research Institute — Integrated Medical Sciences" },
       {
         name: "description",
         content:
-          "Bluemount Hospital fuses advanced diagnostics with Ayurveda, Siddha, Acupuncture, Chiropractic and Naturopathy for precise, integrated healing.",
+          "Bluemount Hospital & Research Institute integrates Kerala Ayurveda, Siddha, Acupuncture, Naturopathy, Chiropractic, Physiotherapy, Rehabilitation and Modern Clinical Medicine for holistic, evidence-based healing in Mysuru, Karnataka.",
       },
-      { name: "author", content: "Bluemount Hospital" },
-      { property: "og:title", content: "Bluemount Hospital — Integrated Medical Sciences" },
+      { name: "author", content: "Bluemount Hospital & Research Institute" },
+      { property: "og:title", content: "Bluemount Hospital & Research Institute — Integrated Medical Sciences" },
       {
         property: "og:description",
         content:
-          "Advanced diagnostics meets traditional healing. Integrated care across Ayurveda, Siddha, Acupuncture, Chiropractic and Naturopathy.",
+          "Advanced diagnostics meets traditional healing. Integrated care across Ayurveda, Siddha, Acupuncture, Chiropractic, Physiotherapy, Rehabilitation and Modern Clinical Medicine.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
