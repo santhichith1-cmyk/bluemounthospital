@@ -104,7 +104,7 @@ function SystemPage() {
               Conditions Treated
             </h3>
             <ul className="space-y-3">
-              {system.conditions.map((c) => (
+              {system.conditions.map((c: string) => (
                 <li key={c} className="flex gap-3 text-sm">
                   <span className="text-primary font-mono">—</span>
                   <span>{c}</span>
@@ -124,7 +124,7 @@ function SystemPage() {
             </span>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
-            {system.treatments.map((t, i) => (
+            {system.treatments.map((t: string, i: number) => (
               <div key={t} className="bg-card p-8">
                 <span className="font-mono text-[10px] text-muted-foreground mb-4 block">
                   {String(i + 1).padStart(2, "0")}
