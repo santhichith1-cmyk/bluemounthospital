@@ -154,9 +154,15 @@ function Index() {
                   {s.code}
                 </span>
                 <h3 className="font-serif text-2xl mb-4">{s.name}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   {s.desc}
                 </p>
+                <a
+                  href="#book"
+                  className="inline-block mb-6 text-xs font-mono uppercase tracking-widest text-primary border-b border-primary/30 pb-1 hover:border-primary transition-colors"
+                >
+                  Explore
+                </a>
                 <img
                   src={s.img}
                   alt={s.name}
