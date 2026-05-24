@@ -70,7 +70,7 @@ function Index() {
               Integrated Medical Sciences
             </span>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] text-balance mb-8 tracking-tight italic">
-              Healing is a <span className="not-italic text-shimmer">deliberate</span> precision.
+              <span className="text-emerald-600">Healing</span> is a <span className="not-italic text-shimmer">deliberate</span> precision.
             </h1>
             <p className="max-w-md text-lg text-muted-foreground leading-relaxed text-pretty mb-10">
               Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Naturopathy and rehabilitation science — under one integrated roof in Mysuru.
@@ -124,7 +124,7 @@ function Index() {
                 Unified disciplines working in clinical concert.
               </p>
             </div>
-            <span className="font-mono text-xs text-muted-foreground mb-2">[8 DEPARTMENTS]</span>
+            <span className="font-mono text-xs text-muted-foreground mb-2">[9 DEPARTMENTS]</span>
           </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">

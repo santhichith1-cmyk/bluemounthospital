@@ -22,14 +22,14 @@ export type System = {
 
 export const systems: System[] = [
   {
-    slug: "kerala-ayurveda",
-    code: "01 / VEDA",
-    name: "Kerala Ayurveda",
+    slug: "ayurveda",
+    code: "01 / AYU",
+    name: "Ayurveda",
     desc: "Authentic Panchakarma detoxification and rejuvenation protocols, supervised by classically trained vaidyas.",
     img: sysAyurveda,
-    tagline: "Classical Panchakarma, clinically supervised.",
+    tagline: "Classical rejuvenation, clinically supervised.",
     intro:
-      "Our Kerala Ayurveda department offers authentic Panchakarma — the five-fold detoxification system codified in classical texts — delivered by traditionally trained vaidyas alongside modern physiological monitoring.",
+      "Our Ayurveda department offers authentic Panchakarma — the five-fold detoxification system codified in classical texts — delivered by traditionally trained vaidyas alongside modern physiological monitoring.",
     treatments: [
       "Panchakarma (Vamana, Virechana, Basti, Nasya, Raktamokshana)",
       "Abhyanga & Shirodhara",
@@ -47,8 +47,35 @@ export const systems: System[] = [
       "Every protocol begins with a prakriti (constitution) assessment and is reviewed in tandem with our diagnostics team so traditional therapy is grounded in measurable outcomes.",
   },
   {
+    slug: "keraleya-panchakarma",
+    code: "02 / PK",
+    name: "Keraleya Panchakarma",
+    desc: "The five-fold purification and detoxification system from Kerala tradition, delivered under strict medical supervision.",
+    img: sysAyurveda,
+    tagline: "Purification as precision medicine.",
+    intro:
+      "Our Keraleya Panchakarma unit specialises in the classical five-fold detoxification system — Vamana, Virechana, Basti, Nasya and Raktamokshana — delivered by traditionally trained therapists under modern clinical monitoring.",
+    treatments: [
+      "Vamana (therapeutic emesis)",
+      "Virechana (therapeutic purgation)",
+      "Basti (medicated enema therapy)",
+      "Nasya (nasal administration)",
+      "Raktamokshana (bloodletting therapy)",
+      "Snehana & Swedana (oleation & fomentation)",
+    ],
+    conditions: [
+      "Chronic skin disorders",
+      "Digestive and metabolic disorders",
+      "Autoimmune conditions",
+      "Detoxification and rejuvenation",
+      "Lifestyle disease management",
+    ],
+    approach:
+      "Each Panchakarma protocol is preceded by a thorough clinical assessment and coordinated with our modern medicine team to ensure safety and measurable outcomes.",
+  },
+  {
     slug: "siddha-medicine",
-    code: "02 / SIDDHA",
+    code: "03 / SIDDHA",
     name: "Siddha Medicine",
     desc: "Time-honoured Tamil therapies integrated with modern metabolic and lifestyle screening.",
     img: sysSiddha,
@@ -72,7 +99,7 @@ export const systems: System[] = [
   },
   {
     slug: "acupuncture",
-    code: "03 / ACU",
+    code: "04 / ACU",
     name: "Acupuncture",
     desc: "Precise meridian-mapped neuromuscular stimulation for chronic pain and neurological recovery.",
     img: sysAcupuncture,
@@ -98,7 +125,7 @@ export const systems: System[] = [
   },
   {
     slug: "chiropractic-care",
-    code: "04 / CHIRO",
+    code: "05 / CHIRO",
     name: "Chiropractic Care",
     desc: "Evidence-based spinal alignment therapy for long-term structural and postural health.",
     img: sysChiropractic,
@@ -122,7 +149,7 @@ export const systems: System[] = [
   },
   {
     slug: "naturopathy",
-    code: "05 / NATURO",
+    code: "06 / NATURO",
     name: "Naturopathy",
     desc: "Bio-dynamic nutrition, hydrotherapy and lifestyle medicine for sustainable wellness.",
     img: sysNaturopathy,
@@ -146,7 +173,7 @@ export const systems: System[] = [
   },
   {
     slug: "physiotherapy",
-    code: "06 / PHYSIO",
+    code: "07 / PHYSIO",
     name: "Physiotherapy",
     desc: "Movement-based recovery programs for musculoskeletal injury, mobility and pain relief.",
     img: sysPhysiotherapy,
@@ -171,7 +198,7 @@ export const systems: System[] = [
   },
   {
     slug: "neuro-rehabilitation",
-    code: "07 / REHAB",
+    code: "08 / REHAB",
     name: "Neuro Rehabilitation",
     desc: "Medically supervised neurological rehabilitation for stroke, spinal and post-surgical recovery.",
     img: sysRehabilitation,
@@ -196,7 +223,7 @@ export const systems: System[] = [
   },
   {
     slug: "modern-clinical-medicine",
-    code: "08 / MED",
+    code: "09 / MED",
     name: "Modern Clinical Medicine",
     desc: "Allopathic consultation, chronic disease management and integrative care planning.",
     img: sysMedicine,
