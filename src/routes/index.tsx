@@ -1,81 +1,123 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import heroAtrium from "@/assets/hero-atrium.jpg";
 import philosophyImg from "@/assets/philosophy.jpg";
 import logo from "@/assets/logo.avif";
 import { systems } from "@/lib/systems";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
 function Index() {
+  const heroRef = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroImgY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 80]);
+  const heroImgScale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.08]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border">
+      <motion.nav
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border"
+      >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3">
-            <img src={logo} alt="Bluemount Hospital" width={40} height={40} className="size-10 object-contain" />
+          <a href="#top" className="flex items-center gap-3 group">
+            <img src={logo} alt="Bluemount Hospital" width={40} height={40} className="size-10 object-contain transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-110" />
             <span className="font-mono text-[11px] tracking-tighter font-medium uppercase leading-tight">
               Bluemount Hospital<br /><span className="text-muted-foreground">& Research Institute</span>
             </span>
           </a>
           <div className="hidden md:flex items-center gap-10 text-[13px] font-medium uppercase tracking-widest text-muted-foreground">
-            <a href="#systems" className="hover:text-foreground transition-colors">Systems</a>
-            <a href="#philosophy" className="hover:text-foreground transition-colors">Philosophy</a>
-            <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
+            {[
+              { href: "#systems", label: "Systems" },
+              { href: "#philosophy", label: "Philosophy" },
+              { href: "#contact", label: "Contact" },
+            ].map((l) => (
+              <a key={l.href} href={l.href} className="relative hover:text-foreground transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full">
+                {l.label}
+              </a>
+            ))}
             <a href="#book" className="text-foreground font-bold border-b border-primary pb-1">Book Now</a>
           </div>
-          <a href="tel:+918618249192" className="hidden sm:block text-sm font-mono font-medium">
+          <a href="tel:+918618249192" className="hidden sm:flex items-center gap-2 text-sm font-mono font-medium">
+            <span className="inline-block size-2 rounded-full bg-primary pulse-ring" aria-hidden />
             +91 86182 49192
           </a>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Hero */}
-      <header id="top" className="relative pt-24 pb-32 px-6 overflow-hidden">
+      <header id="top" ref={heroRef} className="relative pt-24 pb-32 px-6 overflow-hidden bg-grad-radial">
+        {/* floating ambient blobs */}
+        <div aria-hidden className="pointer-events-none absolute -top-32 -left-24 size-[420px] rounded-full bg-primary/10 blur-3xl float-slow" />
+        <div aria-hidden className="pointer-events-none absolute top-40 -right-24 size-[360px] rounded-full bg-accent/10 blur-3xl float-slower" />
+
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-end">
-          <div className="lg:col-span-8 animate-reveal">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-8 relative"
+          >
             <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary mb-6 block">
               Integrated Medical Sciences
             </span>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] text-balance mb-8 tracking-tight italic">
-              Healing is a <span className="text-primary not-italic">deliberate</span> precision.
+              Healing is a <span className="not-italic text-shimmer">deliberate</span> precision.
             </h1>
             <p className="max-w-md text-lg text-muted-foreground leading-relaxed text-pretty mb-10">
               Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Naturopathy and rehabilitation science — under one integrated roof in Mysuru.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a
+              <motion.a
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
                 href="#book"
-                className="px-8 py-4 bg-foreground text-background text-sm font-medium uppercase tracking-widest hover:bg-primary transition-colors duration-300"
+                className="px-8 py-4 bg-foreground text-background text-sm font-medium uppercase tracking-widest hover:bg-primary transition-colors duration-300 shadow-lg shadow-primary/10"
               >
                 Schedule Diagnostic
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
                 href="#systems"
                 className="px-8 py-4 border border-border text-sm font-medium uppercase tracking-widest hover:bg-card transition-colors"
               >
                 Our Systems
-              </a>
+              </motion.a>
             </div>
-          </div>
-          <div className="lg:col-span-4 animate-reveal [animation-delay:200ms]">
-            <img
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{ y: heroImgY }}
+            className="lg:col-span-4 relative"
+          >
+            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-2xl rounded-sm" aria-hidden />
+            <motion.img
+              style={{ scale: heroImgScale }}
               src={heroAtrium}
               alt="Bluemount Hospital main atrium with daylight and oak furnishings"
               width={800}
               height={1024}
-              className="w-full aspect-[4/5] object-cover ring-1 ring-black/5 rounded-sm shadow-2xl"
+              className="relative w-full aspect-[4/5] object-cover ring-1 ring-black/5 rounded-sm shadow-2xl"
             />
-          </div>
+          </motion.div>
         </div>
       </header>
 
       {/* Healing Systems */}
       <section id="systems" className="py-32 px-6 bg-card border-y border-border">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-end mb-16 gap-6 flex-wrap">
+          <Reveal className="flex justify-between items-end mb-16 gap-6 flex-wrap">
             <div>
               <h2 className="font-serif text-4xl mb-4">Healing Systems</h2>
               <p className="text-muted-foreground max-w-sm">
@@ -83,37 +125,43 @@ function Index() {
               </p>
             </div>
             <span className="font-mono text-xs text-muted-foreground mb-2">[8 DEPARTMENTS]</span>
-          </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
-            {systems.map((s) => (
-              <article
+            {systems.map((s, i) => (
+              <motion.article
                 key={s.slug}
-                className="bg-card p-10 group hover:bg-secondary transition-colors cursor-pointer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="bg-card p-10 group hover:bg-secondary transition-colors cursor-pointer card-lift"
               >
                 <span className="font-mono text-[10px] text-muted-foreground mb-8 block">
                   {s.code}
                 </span>
-                <h3 className="font-serif text-2xl mb-4">{s.name}</h3>
+                <h3 className="font-serif text-2xl mb-4 group-hover:text-primary transition-colors duration-500">{s.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   {s.desc}
                 </p>
                 <Link
                   to="/systems/$slug"
                   params={{ slug: s.slug }}
-                  className="inline-block mb-6 text-xs font-mono uppercase tracking-widest text-primary border-b border-primary/30 pb-1 hover:border-primary transition-colors"
+                  className="inline-flex items-center gap-2 mb-6 text-xs font-mono uppercase tracking-widest text-primary border-b border-primary/30 pb-1 hover:border-primary transition-all group/link"
                 >
-                  Explore →
+                  Explore <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
                 </Link>
-                <img
-                  src={s.img}
-                  alt={s.name}
-                  loading="lazy"
-                  width={768}
-                  height={512}
-                  className="w-full aspect-video object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
-                />
-              </article>
+                <div className="overflow-hidden rounded-sm">
+                  <img
+                    src={s.img}
+                    alt={s.name}
+                    loading="lazy"
+                    width={768}
+                    height={512}
+                    className="w-full aspect-video object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                  />
+                </div>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -123,15 +171,19 @@ function Index() {
       <section id="philosophy" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <img
-              src={philosophyImg}
-              alt="View through a circular clinical window"
-              loading="lazy"
-              width={1024}
-              height={1024}
-              className="aspect-square w-full object-cover rounded-full ring-1 ring-border"
-            />
-            <div>
+            <Reveal>
+              <motion.img
+                whileHover={{ rotate: 2, scale: 1.02 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                src={philosophyImg}
+                alt="View through a circular clinical window"
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="aspect-square w-full object-cover rounded-full ring-1 ring-border shadow-2xl"
+              />
+            </Reveal>
+            <Reveal delay={0.1}>
               <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent mb-6 block">
                 Our Philosophy
               </span>
@@ -142,35 +194,36 @@ function Index() {
                 Bluemount Hospital & Research Institute was founded on a singular premise: that true healing is neither purely technological nor purely traditional — it is the synthesis of both. We treat the root cause through evidence-based natural therapies, medically supervised recovery and advanced diagnostics.
               </p>
               <div className="space-y-6">
-                <div className="flex items-start gap-4 pb-6 border-b border-border">
+                <div className="flex items-start gap-4 pb-6 border-b border-border group">
                   <span className="font-mono text-primary pt-1">01</span>
                   <div>
-                    <h4 className="font-medium mb-1">Data-Verified Outcomes</h4>
+                    <h4 className="font-medium mb-1 group-hover:text-primary transition-colors">Data-Verified Outcomes</h4>
                     <p className="text-sm text-muted-foreground">
                       Every traditional treatment is tracked via physiological data points.
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 group">
                   <span className="font-mono text-primary pt-1">02</span>
                   <div>
-                    <h4 className="font-medium mb-1">Holistic Continuity</h4>
+                    <h4 className="font-medium mb-1 group-hover:text-primary transition-colors">Holistic Continuity</h4>
                     <p className="text-sm text-muted-foreground">
                       A single patient record shared across all specialist departments.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* Book / Contact CTA */}
-      <section id="book" className="py-24 px-6 bg-card border-t border-border">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <section id="book" className="relative py-24 px-6 bg-card border-t border-border overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grad-radial opacity-70" />
+        <Reveal className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <h2 className="font-serif text-4xl md:text-5xl leading-tight max-w-xl">
-            Begin your <span className="italic text-primary">integrated</span> care journey.
+            Begin your <span className="italic text-shimmer">integrated</span> care journey.
           </h2>
           <div className="flex flex-col gap-4 lg:items-end">
             <a
@@ -179,14 +232,16 @@ function Index() {
             >
               +91 86182 49192
             </a>
-            <a
+            <motion.a
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
               href="tel:+918618249192"
-              className="inline-block px-8 py-4 bg-foreground text-background text-sm font-medium uppercase tracking-widest hover:bg-primary transition-colors w-fit"
+              className="inline-block px-8 py-4 bg-foreground text-background text-sm font-medium uppercase tracking-widest hover:bg-primary transition-colors w-fit shadow-xl shadow-primary/20"
             >
               Book Appointment
-            </a>
+            </motion.a>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Footer */}
