@@ -88,6 +88,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Bluemount Hospital & Research Institute — Integrated Medical Sciences" },
+      { name: "description", content: "Blue Mountain Care offers integrated healthcare, combining traditional and modern medicine for personalized patient wellness." },
+      { property: "og:description", content: "Blue Mountain Care offers integrated healthcare, combining traditional and modern medicine for personalized patient wellness." },
+      { name: "twitter:description", content: "Blue Mountain Care offers integrated healthcare, combining traditional and modern medicine for personalized patient wellness." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/eff1b85f-3a70-4afd-aae0-812482b4a786/id-preview-7a0a1378--68e2cdae-13fd-42c7-b729-75d540cd2c79.lovable.app-1779645001712.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/eff1b85f-3a70-4afd-aae0-812482b4a786/id-preview-7a0a1378--68e2cdae-13fd-42c7-b729-75d540cd2c79.lovable.app-1779645001712.png" },
     ],
     links: [
       {
