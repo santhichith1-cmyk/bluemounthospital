@@ -287,6 +287,7 @@ function Index() {
               <div className="flex justify-between">
                 <span>Sunday</span> <span>Emergencies Only</span>
               </div>
+            </div>
           </div>
           <div>
             <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">
@@ -302,7 +303,6 @@ function Index() {
               <span>@bluemountayush</span>
             </a>
           </div>
-        </div>
         </div>
         <div className="max-w-7xl mx-auto mt-16">
           <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">
