@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import heroAtrium from "@/assets/hero-atrium.jpg";
-import philosophyImg from "@/assets/philosophy.jpg";
+import philosophyImg from "@/assets/philosophy.avif";
 import logo from "@/assets/logo.avif";
 import { systems } from "@/lib/systems";
 import { Reveal } from "@/components/Reveal";
