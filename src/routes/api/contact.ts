@@ -17,10 +17,48 @@ export const Route = createFileRoute("/api/contact")({
           const body = await request.json();
           const data = contactFormSchema.parse(body);
 
-          console.log("Contact form submission:", {
-            timestamp: new Date().toISOString(),
-            ...data,
+          const apiKey = process.env.RESEND_API_KEY;
+          if (!apiKey) {
+            console.error("RESEND_API_KEY not configured");
+            return Response.json(
+              { error: "Email service not configured" },
+              { status: 500 }
+            );
+          }
+
+          const html = `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
+            <p><strong>Phone:</strong> ${escapeHtml(data.phone)}</p>
+            <p><strong>Subject:</strong> ${escapeHtml(data.subject)}</p>
+            <h3>Message:</h3>
+            <p>${escapeHtml(data.message).replace(/\n/g, "<br>")}</p>
+          `;
+
+          const res = await fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${apiKey}`,
+            },
+            body: JSON.stringify({
+              from: "Bluemount Contact <onboarding@resend.dev>",
+              to: ["info@bluemounthospital.com"],
+              reply_to: data.email,
+              subject: `[Contact] ${data.subject}`,
+              html,
+            }),
           });
+
+          if (!res.ok) {
+            const errText = await res.text();
+            console.error("Resend send failed:", res.status, errText);
+            return Response.json(
+              { error: "Failed to send message. Please try again." },
+              { status: 502 }
+            );
+          }
 
           return Response.json({
             success: true,
@@ -44,8 +82,7 @@ export const Route = createFileRoute("/api/contact")({
   },
 });
 
-// Helper function to escape HTML (kept for future email integration)
-function _escapeHtml(text: string): string {
+function escapeHtml(text: string): string {
   const map: Record<string, string> = {
     "&": "&amp;",
     "<": "&lt;",
@@ -55,15 +92,3 @@ function _escapeHtml(text: string): string {
   };
   return text.replace(/[&<>"']/g, (m) => map[m]);
 }
-
-/*
-// Example Resend integration (uncomment and add RESEND_API_KEY secret)
-const emailResponse = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-        },
-  body: JSON.stringify({ ... }),
-});
-*/
