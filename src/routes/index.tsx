@@ -262,7 +262,12 @@ function Index() {
             <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">
               Contact
             </h3>
-            <address className="not-italic text-sm space-y-2 text-background/60">
+            <a
+              href="https://maps.google.com/?q=Bluemount+Hospital+Mysuru"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="not-italic text-sm space-y-2 text-background/60 block hover:text-background transition-colors"
+            >
               Ring Road, opposite VTU Mysore
               <br />
               Regional Centre, Sathagalli Layout,
@@ -270,9 +275,8 @@ function Index() {
               Rammanahalli, Mysuru,
               <br />
               Karnataka 570019, India
-              <br />
-              <span>+91 86182 49192</span>
-            </address>
+            </a>
+            <span className="text-sm text-background/60">+91 86182 49192</span>
           </div>
           <div>
             <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">
