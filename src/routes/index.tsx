@@ -7,6 +7,7 @@ import philosophyImg from "@/assets/philosophy.avif";
 import logo from "@/assets/logo.avif";
 import { systems } from "@/lib/systems";
 import { Reveal } from "@/components/Reveal";
+import { ContactForm } from "@/components/ContactForm";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -45,7 +46,7 @@ function Index() {
                 {l.label}
               </a>
             ))}
-            <a href="#book" className="text-foreground font-bold border-b border-primary pb-1">Book Now</a>
+            <a href="#contact" className="text-foreground font-bold border-b border-primary pb-1">Book Now</a>
           </div>
           <a href="tel:+918618249192" className="hidden sm:flex items-center gap-2 text-sm font-mono font-medium">
             <span className="inline-block size-2 rounded-full bg-primary pulse-ring" aria-hidden />
@@ -80,7 +81,7 @@ function Index() {
               <motion.a
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                href="#book"
+                href="#contact"
                 className="px-8 py-4 bg-foreground text-background text-sm font-medium uppercase tracking-widest hover:bg-primary transition-colors duration-300 shadow-lg shadow-primary/10"
               >
                 Schedule Diagnostic
@@ -219,34 +220,27 @@ function Index() {
         </div>
       </section>
 
-      {/* Book / Contact CTA */}
-      <section id="book" className="relative py-24 px-6 bg-card border-t border-border overflow-hidden">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grad-radial opacity-70" />
-        <Reveal className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <h2 className="font-serif text-4xl md:text-5xl leading-tight max-w-xl">
-            Begin your <span className="italic text-shimmer">integrated</span> care journey.
-          </h2>
-          <div className="flex flex-col gap-4 lg:items-end">
-            <a
-              href="tel:+918618249192"
-              className="font-mono text-lg md:text-xl tracking-tight"
-            >
-              +91 86182 49192
-            </a>
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              href="tel:+918618249192"
-              className="inline-block px-8 py-4 bg-foreground text-background text-sm font-medium uppercase tracking-widest hover:bg-primary transition-colors w-fit shadow-xl shadow-primary/20"
-            >
-              Book Appointment
-            </motion.a>
-          </div>
-        </Reveal>
+      {/* Contact Form Section */}
+      <section id="contact" className="relative py-24 px-6 border-t border-border overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grad-radial opacity-20" />
+        <div className="relative max-w-7xl mx-auto">
+          <Reveal className="mb-16 text-center max-w-2xl mx-auto">
+            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary mb-4 block">
+              Let's Connect
+            </span>
+            <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-4">
+              Begin your <span className="italic text-shimmer">integrated</span> care journey.
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Fill out the form below or reach out directly. We're here to answer your questions and help you find the right treatment path.
+            </p>
+          </Reveal>
+          <ContactForm />
+        </div>
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-foreground text-background/80 py-24 px-6">
+      <footer id="footer" className="bg-foreground text-background/80 py-24 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-8">
