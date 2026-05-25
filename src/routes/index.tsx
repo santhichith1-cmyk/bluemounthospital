@@ -1,3 +1,4 @@
+import { Instagram } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
@@ -292,8 +293,22 @@ function Index() {
               <div className="flex justify-between">
                 <span>Sunday</span> <span>Emergencies Only</span>
               </div>
-            </div>
           </div>
+          <div>
+            <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">
+              Socials
+            </h3>
+            <a
+              href="https://www.instagram.com/bluemountayush/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-background/60 hover:text-background transition-colors"
+            >
+              <Instagram size={18} />
+              <span>@bluemountayush</span>
+            </a>
+          </div>
+        </div>
         </div>
         <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-background/10 flex flex-wrap gap-4 justify-between items-center text-[10px] font-mono uppercase tracking-widest opacity-40">
           <span>© {new Date().getFullYear()} Bluemount Hospital & Research Institute</span>
