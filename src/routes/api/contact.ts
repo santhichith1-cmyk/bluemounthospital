@@ -20,10 +20,7 @@ export const Route = createFileRoute("/api/contact")({
           const apiKey = process.env.RESEND_API_KEY;
           if (!apiKey) {
             console.error("RESEND_API_KEY not configured");
-            return Response.json(
-              { error: "Email service not configured" },
-              { status: 500 }
-            );
+            return Response.json({ error: "Email service not configured" }, { status: 500 });
           }
 
           const html = `
@@ -54,10 +51,7 @@ export const Route = createFileRoute("/api/contact")({
           if (!res.ok) {
             const errText = await res.text();
             console.error("Resend send failed:", res.status, errText);
-            return Response.json(
-              { error: "Failed to send message. Please try again." },
-              { status: 502 }
-            );
+            return Response.json({ error: "Failed to send message. Please try again." }, { status: 502 });
           }
 
           return Response.json({
@@ -66,16 +60,10 @@ export const Route = createFileRoute("/api/contact")({
           });
         } catch (error) {
           if (error instanceof z.ZodError) {
-            return Response.json(
-              { error: "Invalid form data", details: error.errors },
-              { status: 400 }
-            );
+            return Response.json({ error: "Invalid form data", details: error.errors }, { status: 400 });
           }
           console.error("Contact form error:", error);
-          return Response.json(
-            { error: "Internal server error" },
-            { status: 500 }
-          );
+          return Response.json({ error: "Internal server error" }, { status: 500 });
         }
       },
     },
