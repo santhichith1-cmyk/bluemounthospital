@@ -41,7 +41,7 @@ export const Route = createFileRoute("/api/contact")({
             },
             body: JSON.stringify({
               from: "onboarding@resend.dev",
-              to: "mkt@bluemounthospital.com",
+              to: "bluemountclinic@gmail.com",
               reply_to: data.email,
               subject: `New Contact Form: ${data.subject}`,
               html,
