@@ -2,7 +2,7 @@ import { Instagram } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
-import heroAtrium from "@/assets/hero-atrium.jpg";
+import heroAtrium from "@/assets/hero-atrium-new.jpg";
 import philosophyImg from "@/assets/philosophy.avif";
 import logo from "@/assets/logo.avif";
 import { systems } from "@/lib/systems";
