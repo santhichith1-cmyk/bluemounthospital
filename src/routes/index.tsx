@@ -264,7 +264,7 @@ function Index() {
               Contact
             </h3>
             <a
-              href="https://maps.google.com/?q=Bluemount+Hospital+Mysuru"
+              href="https://maps.app.goo.gl/vAiLtyi2LYWG5di89"
               target="_blank"
               rel="noopener noreferrer"
               className="not-italic text-sm space-y-2 text-background/60 block hover:text-background transition-colors"
