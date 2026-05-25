@@ -43,10 +43,10 @@ export const Route = createFileRoute("/api/contact")({
               Authorization: `Bearer ${apiKey}`,
             },
             body: JSON.stringify({
-              from: "Bluemount Contact <onboarding@resend.dev>",
-              to: ["contactus@bluemounthospital.com"],
+              from: "onboarding@resend.dev",
+              to: "contactus@bluemounthospital.com",
               reply_to: data.email,
-              subject: `[Contact] ${data.subject}`,
+              subject: `New Contact Form: ${data.subject}`,
               html,
             }),
           });
