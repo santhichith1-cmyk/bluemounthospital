@@ -72,7 +72,7 @@ function Index() {
               Integrated Medical Sciences
             </span>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] text-balance mb-8 tracking-tight italic">
-              <span className="text-emerald-600">Healing</span> is a <span className="not-italic text-shimmer">deliberate</span> <span style={{ color: '#ed05a1' }}>precision</span>.
+              <span className="text-emerald-600">Healing</span> is a <span className="not-italic text-shimmer">deliberate</span> <span style={{ color: '#ed05a1' }}>precision</span>
             </h1>
             <p className="max-w-md text-lg text-muted-foreground leading-relaxed text-pretty mb-10">
               Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Naturopathy and rehabilitation science — under one integrated roof in Mysuru.
