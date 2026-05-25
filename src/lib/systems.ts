@@ -1,4 +1,5 @@
 import sysAyurveda from "@/assets/sys-ayurveda.jpg";
+import sysKeraleya from "@/assets/sys-keraleya.jpg";
 import sysSiddha from "@/assets/sys-siddha.jpg";
 import sysAcupuncture from "@/assets/sys-acupuncture.jpg";
 import sysChiropractic from "@/assets/sys-chiropractic.jpg";
