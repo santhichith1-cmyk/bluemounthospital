@@ -310,6 +310,23 @@ function Index() {
           </div>
         </div>
         </div>
+        <div className="max-w-7xl mx-auto mt-16">
+          <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">
+            Find Us
+          </h3>
+          <div className="aspect-[16/9] w-full overflow-hidden rounded-sm border border-background/10">
+            <iframe
+              title="Bluemount Hospital location"
+              src="https://www.google.com/maps?q=Bluemount+Hospital+Mysuru&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: "grayscale(0.3) contrast(1.05)" }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+        </div>
         <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-background/10 flex flex-wrap gap-4 justify-between items-center text-[10px] font-mono uppercase tracking-widest opacity-40">
           <span>© {new Date().getFullYear()} Bluemount Hospital & Research Institute</span>
           <span>Precision. Presence. Peace.</span>
