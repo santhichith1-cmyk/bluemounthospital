@@ -1,4 +1,5 @@
 import sysAyurveda from "@/assets/sys-ayurveda.jpg";
+import sysKeraleya from "@/assets/sys-keraleya.jpg";
 import sysSiddha from "@/assets/sys-siddha.jpg";
 import sysAcupuncture from "@/assets/sys-acupuncture.jpg";
 import sysChiropractic from "@/assets/sys-chiropractic.jpg";
@@ -51,7 +52,7 @@ export const systems: System[] = [
     code: "02 / PK",
     name: "Keraleya Panchakarma",
     desc: "The five-fold purification and detoxification system from Kerala tradition, delivered under strict medical supervision.",
-    img: sysAyurveda,
+    img: sysKeraleya,
     tagline: "Purification as precision medicine.",
     intro:
       "Our Keraleya Panchakarma unit specialises in the classical five-fold detoxification system — Vamana, Virechana, Basti, Nasya and Raktamokshana — delivered by traditionally trained therapists under modern clinical monitoring.",
