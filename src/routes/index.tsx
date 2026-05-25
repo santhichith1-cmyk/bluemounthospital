@@ -1,3 +1,4 @@
+import { Instagram } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
