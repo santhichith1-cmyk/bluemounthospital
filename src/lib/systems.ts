@@ -121,7 +121,8 @@ export const systems: System[] = [
       "Sciatica and neuropathy",
       "Stress and sleep disorders",
     ],
-    approach: "Sessions are integrated with physiotherapy and rehab so neural recovery is reinforced through movement.",
+    approach:
+      "Sessions are integrated with physiotherapy and rehab so neural recovery is reinforced through movement.",
   },
   {
     slug: "chiropractic-care",
@@ -168,9 +169,34 @@ export const systems: System[] = [
       "Digestive disorders",
       "Stress and lifestyle disorders",
     ],
-    approach: "Programs are tailored to each patient's clinical baseline and tracked alongside modern medical markers.",
+    approach:
+      "Programs are tailored to each patient's clinical baseline and tracked alongside modern medical markers.",
   },
-  ,
+  {
+    slug: "physiotherapy",
+    code: "07 / PHYSIO",
+    name: "Physiotherapy",
+    desc: "Movement-based recovery programs for musculoskeletal injury, mobility and pain relief.",
+    img: sysPhysiotherapy,
+    tagline: "Movement, restored with intent.",
+    intro:
+      "Our physiotherapy team builds progressive recovery plans grounded in functional movement, manual therapy and modern modalities.",
+    treatments: [
+      "Manual therapy and mobilisation",
+      "Therapeutic exercise prescription",
+      "Electrotherapy and ultrasound",
+      "Post-operative rehabilitation",
+      "Sports injury management",
+    ],
+    conditions: [
+      "Musculoskeletal injuries",
+      "Post-surgical recovery",
+      "Sports performance and recovery",
+      "Chronic pain syndromes",
+    ],
+    approach:
+      "Sessions are sequenced with chiropractic, acupuncture and rehab so mobility gains carry over into daily life.",
+  },
   {
     slug: "neuro-rehabilitation",
     code: "08 / REHAB",
@@ -223,4 +249,5 @@ export const systems: System[] = [
   },
 ];
 
-export const getSystem = (slug: string) => systems.find((s) => s.slug === slug);
+export const getSystem = (slug: string) =>
+  systems.find((s) => s.slug === slug);
