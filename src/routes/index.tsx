@@ -68,7 +68,10 @@ function Index() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-8 relative"
           >
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary mb-6 block">
+            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary mb-3 block">
+              Bluemount Hospital & Research Institute
+            </span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
               Integrated Medical Sciences
             </span>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] text-balance mb-8 tracking-tight italic">
