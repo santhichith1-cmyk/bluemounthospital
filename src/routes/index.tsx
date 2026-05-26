@@ -69,13 +69,12 @@ function Index() {
             className="lg:col-span-7 relative"
           >
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">
-              Bluemount Hospital & Research Institute
-            </span>
-            <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-8 block">
               Integrated Medical Sciences
             </span>
-            <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.95] text-balance mb-10 tracking-tight italic font-bold">
-              <span className="text-emerald-600">Healing</span> is a <span className="not-italic text-shimmer">deliberate</span> <span style={{ color: '#ed05a1' }}>precision</span>
+            <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.9] text-balance mb-8 tracking-tight font-bold">
+              <span className="block text-foreground">Bluemount</span>
+              <span className="block text-foreground">Hospital</span>
+              <span className="block text-emerald-600 text-[0.45em] mt-2 not-italic font-normal tracking-wide">& Research Institute</span>
             </h1>
             <p className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12">
               Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Naturopathy and rehabilitation science — under one integrated roof in Mysuru.
