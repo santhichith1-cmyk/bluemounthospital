@@ -32,7 +32,7 @@ function Index() {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3 group">
             <img src={logo} alt="Bluemount Hospital" width={48} height={48} className="size-12 object-contain transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-110" />
-            <span className="font-serif text-sm tracking-tight font-semibold uppercase leading-tight hidden sm:block">
+            <span className="font-serif text-sm tracking-tight font-semibold uppercase leading-tight hidden sm:block" style={{ color: "#1B3B6F" }}>
               Bluemount Hospital<br /><span className="text-muted-foreground text-xs font-normal tracking-wide normal-case">& Research Institute</span>
             </span>
           </a>
@@ -247,7 +247,7 @@ function Index() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-8">
               <img src={logo} alt="" width={32} height={32} className="size-8 object-contain bg-background rounded-sm p-1" />
-              <span className="font-mono text-xs uppercase tracking-tighter">
+              <span className="font-mono text-xs uppercase tracking-tighter" style={{ color: "#1B3B6F" }}>
                 Bluemount Hospital<br />& Research Institute
               </span>
             </div>
