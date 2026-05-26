@@ -31,9 +31,22 @@ function Index() {
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3 group">
-            <img src={logo} alt="Bluemount Hospital" width={48} height={48} className="size-12 object-contain transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-110" />
-            <span className="font-serif text-sm tracking-tight font-semibold uppercase leading-tight hidden sm:block" style={{ color: "#1B3B6F" }}>
-              Bluemount Hospital<br /><span className="text-muted-foreground text-xs font-normal tracking-wide normal-case">& Research Institute</span>
+            <img
+              src={logo}
+              alt="Bluemount Hospital"
+              width={48}
+              height={48}
+              className="size-12 object-contain transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-110"
+            />
+            <span
+              className="font-serif text-sm tracking-tight font-semibold uppercase leading-tight hidden sm:block"
+              style={{ color: "#1B3B6F" }}
+            >
+              Bluemount Hospital
+              <br />
+              <span className="text-muted-foreground text-xs font-normal tracking-wide normal-case">
+                & Research Institute
+              </span>
             </span>
           </a>
           <div className="hidden md:flex items-center gap-10 text-[13px] font-medium uppercase tracking-widest text-muted-foreground">
@@ -42,11 +55,17 @@ function Index() {
               { href: "#philosophy", label: "Philosophy" },
               { href: "#contact", label: "Contact" },
             ].map((l) => (
-              <a key={l.href} href={l.href} className="relative hover:text-foreground transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full">
+              <a
+                key={l.href}
+                href={l.href}
+                className="relative hover:text-foreground transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              >
                 {l.label}
               </a>
             ))}
-            <a href="#contact" className="text-foreground font-bold border-b border-primary pb-1">Book Now</a>
+            <a href="#contact" className="text-foreground font-bold border-b border-primary pb-1">
+              Book Now
+            </a>
           </div>
           <a href="tel:+918618249192" className="hidden sm:flex items-center gap-2 text-sm font-mono font-medium">
             <span className="inline-block size-2 rounded-full bg-primary pulse-ring" aria-hidden />
@@ -56,10 +75,20 @@ function Index() {
       </motion.nav>
 
       {/* Hero */}
-      <header id="top" ref={heroRef} className="relative min-h-[100dvh] flex items-center px-6 overflow-hidden bg-grad-radial">
+      <header
+        id="top"
+        ref={heroRef}
+        className="relative min-h-[100dvh] flex items-center px-6 overflow-hidden bg-grad-radial"
+      >
         {/* floating ambient blobs */}
-        <div aria-hidden className="pointer-events-none absolute -top-32 -left-32 size-[500px] rounded-full bg-primary/15 blur-3xl float-slow" />
-        <div aria-hidden className="pointer-events-none absolute top-1/3 -right-32 size-[450px] rounded-full bg-accent/15 blur-3xl float-slower" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-32 -left-32 size-[500px] rounded-full bg-primary/15 blur-3xl float-slow"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-1/3 -right-32 size-[450px] rounded-full bg-accent/15 blur-3xl float-slower"
+        />
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center py-24 w-full">
           <motion.div
@@ -72,12 +101,15 @@ function Index() {
               Integrated Medical Sciences
             </span>
             <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.9] text-balance mb-8 tracking-tight font-bold">
-              <span className="block text-foreground">Bluemount</span>
-              <span className="block text-foreground">Hospital</span>
-              <span className="block text-emerald-600 text-[0.45em] mt-2 not-italic font-normal tracking-wide">& Research Institute</span>
+              <span className="block text-[#1B3B6F]">Bluemount</span>
+              <span className="block text-[#1B3B6F]">Hospital</span>
+              <span className="block text-emerald-600 text-[0.45em] mt-2 not-italic font-normal tracking-wide">
+                & Research Institute
+              </span>
             </h1>
             <p className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12">
-              Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Naturopathy and rehabilitation science — under one integrated roof in Mysuru.
+              Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Naturopathy and
+              rehabilitation science — under one integrated roof in Mysuru.
             </p>
             <div className="flex flex-wrap gap-5">
               <motion.a
@@ -105,7 +137,10 @@ function Index() {
             style={{ y: heroImgY }}
             className="lg:col-span-5 relative"
           >
-            <div className="absolute -inset-8 bg-gradient-to-br from-primary/25 via-transparent to-accent/25 blur-2xl rounded-sm" aria-hidden />
+            <div
+              className="absolute -inset-8 bg-gradient-to-br from-primary/25 via-transparent to-accent/25 blur-2xl rounded-sm"
+              aria-hidden
+            />
             <motion.img
               style={{ scale: heroImgScale }}
               src={heroAtrium}
@@ -124,9 +159,7 @@ function Index() {
           <Reveal className="flex justify-between items-end mb-16 gap-6 flex-wrap">
             <div>
               <h2 className="font-serif text-4xl mb-4">Healing Systems</h2>
-              <p className="text-muted-foreground max-w-sm">
-                Unified disciplines working in clinical concert.
-              </p>
+              <p className="text-muted-foreground max-w-sm">Unified disciplines working in clinical concert.</p>
             </div>
             <span className="font-mono text-xs text-muted-foreground mb-2">[9 DEPARTMENTS]</span>
           </Reveal>
@@ -141,19 +174,20 @@ function Index() {
                 transition={{ duration: 0.7, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 className="bg-card p-10 group hover:bg-secondary transition-colors cursor-pointer card-lift"
               >
-                <span className="font-mono text-[10px] text-muted-foreground mb-8 block">
-                  {s.code}
-                </span>
-                <h3 className="font-serif text-2xl mb-4 group-hover:text-primary transition-colors duration-500">{s.name}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                  {s.desc}
-                </p>
+                <span className="font-mono text-[10px] text-muted-foreground mb-8 block">{s.code}</span>
+                <h3 className="font-serif text-2xl mb-4 group-hover:text-primary transition-colors duration-500">
+                  {s.name}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">{s.desc}</p>
                 <Link
                   to="/systems/$slug"
                   params={{ slug: s.slug }}
                   className="inline-flex items-center gap-2 mb-6 text-xs font-mono uppercase tracking-widest text-primary border-b border-primary/30 pb-1 hover:border-primary transition-all group/link"
                 >
-                  Explore <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
+                  Explore{" "}
+                  <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">
+                    →
+                  </span>
                 </Link>
                 <div className="overflow-hidden rounded-sm">
                   <img
@@ -195,13 +229,17 @@ function Index() {
                 Bridging the gap between ancient intuition and modern proof.
               </h2>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Bluemount Hospital & Research Institute was founded on a singular premise: that true healing is neither purely technological nor purely traditional — it is the synthesis of both. We treat the root cause through evidence-based natural therapies, medically supervised recovery and advanced diagnostics.
+                Bluemount Hospital & Research Institute was founded on a singular premise: that true healing is neither
+                purely technological nor purely traditional — it is the synthesis of both. We treat the root cause
+                through evidence-based natural therapies, medically supervised recovery and advanced diagnostics.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start gap-4 pb-6 border-b border-border group">
                   <span className="font-mono text-primary pt-1">01</span>
                   <div>
-                    <h4 className="font-medium mb-1 group-hover:text-primary transition-colors">Data-Verified Outcomes</h4>
+                    <h4 className="font-medium mb-1 group-hover:text-primary transition-colors">
+                      Data-Verified Outcomes
+                    </h4>
                     <p className="text-sm text-muted-foreground">
                       Every traditional treatment is tracked via physiological data points.
                     </p>
@@ -234,7 +272,8 @@ function Index() {
               Begin your <span className="italic text-shimmer">integrated</span> care journey.
             </h2>
             <p className="text-muted-foreground text-lg">
-              Fill out the form below or reach out directly. We're here to answer your questions and help you find the right treatment path.
+              Fill out the form below or reach out directly. We're here to answer your questions and help you find the
+              right treatment path.
             </p>
           </Reveal>
           <ContactForm />
@@ -246,19 +285,25 @@ function Index() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-8">
-              <img src={logo} alt="" width={32} height={32} className="size-8 object-contain bg-background rounded-sm p-1" />
+              <img
+                src={logo}
+                alt=""
+                width={32}
+                height={32}
+                className="size-8 object-contain bg-background rounded-sm p-1"
+              />
               <span className="font-mono text-xs uppercase tracking-tighter" style={{ color: "#1B3B6F" }}>
-                Bluemount Hospital<br />& Research Institute
+                Bluemount Hospital
+                <br />& Research Institute
               </span>
             </div>
             <p className="max-w-xs text-sm text-background/50 leading-relaxed">
-              An integrative healthcare and wellness institution in Mysuru combining traditional sciences with modern clinical medicine.
+              An integrative healthcare and wellness institution in Mysuru combining traditional sciences with modern
+              clinical medicine.
             </p>
           </div>
           <div>
-            <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">
-              Contact
-            </h3>
+            <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">Contact</h3>
             <a
               href="https://maps.app.goo.gl/vAiLtyi2LYWG5di89"
               target="_blank"
@@ -276,9 +321,7 @@ function Index() {
             <span className="text-sm text-background/60">+91 86182 49192</span>
           </div>
           <div>
-            <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">
-              Hours
-            </h3>
+            <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">Hours</h3>
             <div className="text-sm space-y-2 text-background/60">
               <div className="flex justify-between">
                 <span>Mon – Fri</span> <span>08:00 – 20:00</span>
@@ -292,9 +335,7 @@ function Index() {
             </div>
           </div>
           <div>
-            <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">
-              Socials
-            </h3>
+            <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">Socials</h3>
             <a
               href="https://www.instagram.com/bluemountayush/"
               target="_blank"
@@ -307,9 +348,7 @@ function Index() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-16">
-          <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">
-            Find Us
-          </h3>
+          <h3 className="text-[11px] font-mono uppercase tracking-widest text-background mb-6">Find Us</h3>
           <div className="aspect-[16/9] w-full overflow-hidden rounded-sm border border-background/10">
             <iframe
               title="Bluemount Hospital location"
