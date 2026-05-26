@@ -31,9 +31,9 @@ function Index() {
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3 group">
-            <img src={logo} alt="Bluemount Hospital" width={40} height={40} className="size-10 object-contain transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-110" />
-            <span className="font-mono text-[11px] tracking-tighter font-medium uppercase leading-tight">
-              Bluemount Hospital<br /><span className="text-muted-foreground">& Research Institute</span>
+            <img src={logo} alt="Bluemount Hospital" width={48} height={48} className="size-12 object-contain transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-110" />
+            <span className="font-serif text-sm tracking-tight font-semibold uppercase leading-tight hidden sm:block">
+              Bluemount Hospital<br /><span className="text-muted-foreground text-xs font-normal tracking-wide normal-case">& Research Institute</span>
             </span>
           </a>
           <div className="hidden md:flex items-center gap-10 text-[13px] font-medium uppercase tracking-widest text-muted-foreground">
