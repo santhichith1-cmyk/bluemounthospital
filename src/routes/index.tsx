@@ -56,7 +56,7 @@ function Index() {
       </motion.nav>
 
       {/* Hero */}
-      <header id="top" ref={heroRef} className="relative pt-24 pb-32 px-6 overflow-hidden bg-grad-radial">
+      <header id="top" ref={heroRef} className="relative pt-36 pb-44 px-6 overflow-hidden bg-grad-radial min-h-[85vh]">
         {/* floating ambient blobs */}
         <div aria-hidden className="pointer-events-none absolute -top-32 -left-24 size-[420px] rounded-full bg-primary/10 blur-3xl float-slow" />
         <div aria-hidden className="pointer-events-none absolute top-40 -right-24 size-[360px] rounded-full bg-accent/10 blur-3xl float-slower" />
