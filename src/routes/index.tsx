@@ -161,7 +161,7 @@ function Index() {
               <h2 className="font-serif text-4xl mb-4">Healing Systems</h2>
               <p className="text-muted-foreground max-w-sm">Unified disciplines working in clinical concert.</p>
             </div>
-            <span className="font-mono text-xs text-muted-foreground mb-2">[9 DEPARTMENTS]</span>
+            <span className="font-mono text-xs text-muted-foreground mb-2">[8 DEPARTMENTS]</span>
           </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
