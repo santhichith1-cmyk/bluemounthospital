@@ -56,64 +56,64 @@ function Index() {
       </motion.nav>
 
       {/* Hero */}
-      <header id="top" ref={heroRef} className="relative pt-36 pb-44 px-6 overflow-hidden bg-grad-radial min-h-[85vh]">
+      <header id="top" ref={heroRef} className="relative min-h-[100dvh] flex items-center px-6 overflow-hidden bg-grad-radial">
         {/* floating ambient blobs */}
-        <div aria-hidden className="pointer-events-none absolute -top-32 -left-24 size-[420px] rounded-full bg-primary/10 blur-3xl float-slow" />
-        <div aria-hidden className="pointer-events-none absolute top-40 -right-24 size-[360px] rounded-full bg-accent/10 blur-3xl float-slower" />
+        <div aria-hidden className="pointer-events-none absolute -top-32 -left-32 size-[500px] rounded-full bg-primary/15 blur-3xl float-slow" />
+        <div aria-hidden className="pointer-events-none absolute top-1/3 -right-32 size-[450px] rounded-full bg-accent/15 blur-3xl float-slower" />
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-end">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center py-24 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-8 relative"
+            className="lg:col-span-7 relative"
           >
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary mb-3 block">
+            <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4 block">
               Bluemount Hospital & Research Institute
             </span>
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
+            <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mb-8 block">
               Integrated Medical Sciences
             </span>
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] text-balance mb-8 tracking-tight italic">
+            <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.95] text-balance mb-10 tracking-tight italic font-bold">
               <span className="text-emerald-600">Healing</span> is a <span className="not-italic text-shimmer">deliberate</span> <span style={{ color: '#ed05a1' }}>precision</span>
             </h1>
-            <p className="max-w-md text-lg text-muted-foreground leading-relaxed text-pretty mb-10">
+            <p className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12">
               Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Naturopathy and rehabilitation science — under one integrated roof in Mysuru.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-5">
               <motion.a
-                whileHover={{ scale: 1.04 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 href="#contact"
-                className="px-8 py-4 bg-foreground text-background text-sm font-medium uppercase tracking-widest hover:bg-primary transition-colors duration-300 shadow-lg shadow-primary/10"
+                className="px-10 py-5 bg-foreground text-background text-sm font-bold uppercase tracking-widest hover:bg-primary transition-colors duration-300 shadow-xl shadow-primary/15"
               >
                 Schedule Diagnostic
               </motion.a>
               <motion.a
-                whileHover={{ scale: 1.04 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 href="#systems"
-                className="px-8 py-4 border border-border text-sm font-medium uppercase tracking-widest hover:bg-card transition-colors"
+                className="px-10 py-5 border-2 border-border text-sm font-bold uppercase tracking-widest hover:bg-card transition-colors"
               >
                 Our Systems
               </motion.a>
             </div>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             style={{ y: heroImgY }}
-            className="lg:col-span-4 relative"
+            className="lg:col-span-5 relative"
           >
-            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-2xl rounded-sm" aria-hidden />
+            <div className="absolute -inset-8 bg-gradient-to-br from-primary/25 via-transparent to-accent/25 blur-2xl rounded-sm" aria-hidden />
             <motion.img
               style={{ scale: heroImgScale }}
               src={heroAtrium}
               alt="Bluemount Hospital main atrium with daylight and oak furnishings"
               width={800}
               height={1024}
-              className="relative w-full aspect-[4/5] object-cover ring-1 ring-black/5 rounded-sm shadow-2xl"
+              className="relative w-full aspect-[3/4] object-cover ring-1 ring-black/5 rounded-sm shadow-2xl"
             />
           </motion.div>
         </div>
