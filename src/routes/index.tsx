@@ -141,12 +141,14 @@ function Index() {
             <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
               {[
                 { k: "9", v: "Healing Systems" },
-                { k: "24/7", v: "Emergency" },
+                { k: "5+", v: "Expert specialists doctors" },
                 { k: "1", v: "Integrated Roof" },
               ].map((s) => (
                 <div key={s.v} className="border-l border-accent/40 pl-4">
                   <div className="font-serif text-3xl text-gold">{s.k}</div>
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">{s.v}</div>
+                  <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
+                    {s.v}
+                  </div>
                 </div>
               ))}
             </div>
@@ -176,7 +178,9 @@ function Index() {
                 <div className="font-serif text-lg italic">New patients</div>
               </div>
               <div className="absolute -top-4 -right-4 size-20 rounded-full border border-accent/40 flex items-center justify-center font-mono text-[10px] text-accent uppercase tracking-widest rotate-12 bg-background/40 backdrop-blur">
-                Estd<br/>2024
+                Estd
+                <br />
+                2024
               </div>
             </div>
           </motion.div>
@@ -185,15 +189,22 @@ function Index() {
 
       {/* Healing Systems */}
       <section id="systems" className="py-32 px-6 bg-card border-y border-border relative overflow-hidden">
-        <div aria-hidden className="pointer-events-none absolute top-0 right-0 size-[600px] rounded-full bg-primary/10 blur-3xl" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-0 right-0 size-[600px] rounded-full bg-primary/10 blur-3xl"
+        />
         <div className="max-w-7xl mx-auto">
           <Reveal className="flex justify-between items-end mb-20 gap-6 flex-wrap">
             <div>
-              <span className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-4 block">— The Practice</span>
+              <span className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-4 block">
+                — The Practice
+              </span>
               <h2 className="font-serif text-5xl md:text-6xl mb-4">
                 Healing <span className="italic text-gold">Systems</span>
               </h2>
-              <p className="text-muted-foreground max-w-sm font-light text-lg">Unified disciplines working in clinical concert.</p>
+              <p className="text-muted-foreground max-w-sm font-light text-lg">
+                Unified disciplines working in clinical concert.
+              </p>
             </div>
             <span className="font-mono text-xs text-accent mb-2">[ 9 DEPARTMENTS ]</span>
           </Reveal>
@@ -241,12 +252,18 @@ function Index() {
 
       {/* Philosophy */}
       <section id="philosophy" className="py-32 px-6 relative overflow-hidden">
-        <div aria-hidden className="pointer-events-none absolute -bottom-40 -left-40 size-[600px] rounded-full bg-accent/10 blur-3xl" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-40 -left-40 size-[600px] rounded-full bg-accent/10 blur-3xl"
+        />
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <Reveal>
               <div className="relative">
-                <div aria-hidden className="absolute -inset-6 rounded-full bg-gradient-to-br from-primary/50 via-accent/30 to-transparent blur-2xl" />
+                <div
+                  aria-hidden
+                  className="absolute -inset-6 rounded-full bg-gradient-to-br from-primary/50 via-accent/30 to-transparent blur-2xl"
+                />
                 <motion.img
                   whileHover={{ rotate: 2, scale: 1.02 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -286,7 +303,9 @@ function Index() {
                 <div className="flex items-start gap-4 group">
                   <span className="font-mono text-accent pt-1">02</span>
                   <div>
-                    <h4 className="font-serif text-xl mb-1 group-hover:text-gold transition-colors">Holistic Continuity</h4>
+                    <h4 className="font-serif text-xl mb-1 group-hover:text-gold transition-colors">
+                      Holistic Continuity
+                    </h4>
                     <p className="text-sm text-muted-foreground font-light">
                       A single patient record shared across all specialist departments.
                     </p>
