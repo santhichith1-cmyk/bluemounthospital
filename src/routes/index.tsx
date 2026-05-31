@@ -99,7 +99,7 @@ function Index() {
           }}
         />
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center py-24 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center py-24 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
