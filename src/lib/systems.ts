@@ -3,9 +3,6 @@ import sysKeraleya from "@/assets/sys-keraleya.jpg";
 import sysSiddha from "@/assets/sys-siddha.jpg";
 import sysAcupuncture from "@/assets/sys-acupuncture.jpg";
 import sysChiropractic from "@/assets/sys-chiropractic.jpg";
-import sysNaturopathy from "@/assets/sys-naturopathy.jpg";
-import sysPhysiotherapy from "@/assets/sys-physiotherapy.jpg";
-import sysRehabilitation from "@/assets/sys-rehabilitation.jpg";
 import sysMedicine from "@/assets/sys-medicine.jpg";
 
 export type System = {
@@ -121,8 +118,7 @@ export const systems: System[] = [
       "Sciatica and neuropathy",
       "Stress and sleep disorders",
     ],
-    approach:
-      "Sessions are integrated with physiotherapy and rehab so neural recovery is reinforced through movement.",
+    approach: "Sessions are integrated with physiotherapy and rehab so neural recovery is reinforced through movement.",
   },
   {
     slug: "chiropractic-care",
@@ -149,82 +145,8 @@ export const systems: System[] = [
       "Plans pair manual care with physiotherapy-led strengthening so results are sustained, not session-dependent.",
   },
   {
-    slug: "naturopathy",
-    code: "06 / NATURO",
-    name: "Naturopathy",
-    desc: "Bio-dynamic nutrition, hydrotherapy and lifestyle medicine for sustainable wellness.",
-    img: sysNaturopathy,
-    tagline: "Lifestyle as the prescription.",
-    intro:
-      "Naturopathy at Bluemount focuses on the body's innate capacity to heal — through nutrition, hydrotherapy, fasting protocols and mind-body practices.",
-    treatments: [
-      "Therapeutic diet planning",
-      "Hydrotherapy and mud therapy",
-      "Therapeutic fasting",
-      "Yoga and breathwork",
-    ],
-    conditions: [
-      "Hypertension and diabetes",
-      "Obesity and metabolic syndrome",
-      "Digestive disorders",
-      "Stress and lifestyle disorders",
-    ],
-    approach:
-      "Programs are tailored to each patient's clinical baseline and tracked alongside modern medical markers.",
-  },
-  {
-    slug: "physiotherapy",
-    code: "07 / PHYSIO",
-    name: "Physiotherapy",
-    desc: "Movement-based recovery programs for musculoskeletal injury, mobility and pain relief.",
-    img: sysPhysiotherapy,
-    tagline: "Movement, restored with intent.",
-    intro:
-      "Our physiotherapy team builds progressive recovery plans grounded in functional movement, manual therapy and modern modalities.",
-    treatments: [
-      "Manual therapy and mobilisation",
-      "Therapeutic exercise prescription",
-      "Electrotherapy and ultrasound",
-      "Post-operative rehabilitation",
-      "Sports injury management",
-    ],
-    conditions: [
-      "Musculoskeletal injuries",
-      "Post-surgical recovery",
-      "Sports performance and recovery",
-      "Chronic pain syndromes",
-    ],
-    approach:
-      "Sessions are sequenced with chiropractic, acupuncture and rehab so mobility gains carry over into daily life.",
-  },
-  {
-    slug: "neuro-rehabilitation",
-    code: "08 / REHAB",
-    name: "Neuro Rehabilitation",
-    desc: "Medically supervised neurological rehabilitation for stroke, spinal and post-surgical recovery.",
-    img: sysRehabilitation,
-    tagline: "Reclaiming function after neurological injury.",
-    intro:
-      "Our rehabilitation unit specialises in helping patients recover from stroke, spinal cord injury and major surgery through multidisciplinary, goal-oriented care.",
-    treatments: [
-      "Stroke and post-stroke rehabilitation",
-      "Spinal cord injury rehab",
-      "Gait and balance retraining",
-      "Speech and swallow therapy",
-      "Occupational therapy",
-    ],
-    conditions: [
-      "Stroke and TIA recovery",
-      "Spinal cord injuries",
-      "Parkinson's and movement disorders",
-      "Post-orthopaedic surgery",
-    ],
-    approach:
-      "Each patient has a coordinated team — neurologist, physiotherapist, occupational therapist and Ayurveda physician — working from a shared recovery roadmap.",
-  },
-  {
     slug: "modern-clinical-medicine",
-    code: "09 / MED",
+    code: "06 / MED",
     name: "Modern Clinical Medicine",
     desc: "Allopathic consultation, chronic disease management and integrative care planning.",
     img: sysMedicine,
@@ -249,5 +171,4 @@ export const systems: System[] = [
   },
 ];
 
-export const getSystem = (slug: string) =>
-  systems.find((s) => s.slug === slug);
+export const getSystem = (slug: string) => systems.find((s) => s.slug === slug);
