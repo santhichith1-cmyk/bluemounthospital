@@ -140,7 +140,7 @@ function Index() {
             </div>
             <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
               {[
-                { k: "9", v: "Healing Systems" },
+                { k: "6", v: "Healing Systems" },
                 { k: "5+", v: "Expert specialists doctors" },
                 { k: "1", v: "Integrated Roof" },
               ].map((s) => (
@@ -206,7 +206,7 @@ function Index() {
                 Unified disciplines working in clinical concert.
               </p>
             </div>
-            <span className="font-mono text-xs text-accent mb-2">[ 9 DEPARTMENTS ]</span>
+            <span className="font-mono text-xs text-accent mb-2">[ 6 DEPARTMENTS ]</span>
           </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border/60 border border-border">
