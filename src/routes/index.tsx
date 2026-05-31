@@ -117,8 +117,8 @@ function Index() {
               </span>
             </h1>
             <p className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light">
-              Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Naturopathy and
-              rehabilitation science — under one integrated roof in Mysuru.
+              Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Acupuncture and
+              chiropractic care — under one integrated roof in Mysuru.
             </p>
             <div className="flex flex-wrap gap-5">
               <motion.a
