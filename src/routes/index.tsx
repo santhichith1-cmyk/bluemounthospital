@@ -1,7 +1,7 @@
 import { Instagram } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import heroAtrium from "@/assets/hero-atrium-updated.jpg";
 import philosophyImg from "@/assets/philosophy.avif";
 import logo from "@/assets/logo.avif";
@@ -9,6 +9,106 @@ import { systems } from "@/lib/systems";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { LotusMandala } from "@/components/decor/LotusMandala";
+import { DrawnIcon } from "@/components/decor/DrawnIcon";
+import { EcgDivider } from "@/components/decor/EcgDivider";
+import { BreathingBlob } from "@/components/decor/BreathingBlob";
+
+const systemIcons: Record<string, ReactNode> = {
+  ayurveda: (
+    <>
+      <path d="M24 40 C 12 34, 8 20, 14 10 C 28 12, 36 22, 34 36 C 31 39, 27 40, 24 40 Z" />
+      <path d="M16 34 C 20 26, 26 20, 32 16" />
+    </>
+  ),
+  "keraleya-panchakarma": (
+    <>
+      <path d="M24 8 C 30 16, 34 21, 34 27 a10 10 0 1 1 -20 0 C 14 21, 18 16, 24 8 Z" />
+      <path d="M12 42 C 16 39, 20 39, 24 42 C 28 45, 32 45, 36 42" />
+    </>
+  ),
+  "siddha-medicine": (
+    <>
+      <path d="M10 22 H38 C 38 32, 32 38, 24 38 C 16 38, 10 32, 10 22 Z" />
+      <path d="M30 8 L20 24" />
+      <path d="M16 44 H32" />
+    </>
+  ),
+  acupuncture: (
+    <>
+      <path d="M38 10 L18 30" />
+      <path d="M18 30 L12 40 L14 42 L24 36" />
+      <circle cx="34" cy="20" r="1.5" />
+      <circle cx="28" cy="26" r="1.5" />
+      <circle cx="40" cy="26" r="1.5" />
+    </>
+  ),
+  "chiropractic-care": (
+    <>
+      <path d="M24 6 C 28 12, 28 16, 24 20 C 20 24, 20 28, 24 32 C 28 36, 28 40, 24 44" />
+      <path d="M18 12 H30 M17 22 H31 M18 32 H30 M19 40 H29" />
+    </>
+  ),
+  "modern-clinical-medicine": (
+    <>
+      <path d="M12 8 V18 a8 8 0 0 0 16 0 V8" />
+      <path d="M20 26 V32 a8 8 0 0 0 16 0 V28" />
+      <circle cx="36" cy="24" r="4" />
+    </>
+  ),
+};
+
+function CountUp({ value }: { value: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const match = value.match(/^(\d+)(.*)$/);
+  const target = match ? parseInt(match[1], 10) : 0;
+  const suffix = match ? match[2] : "";
+  const [n, setN] = useState(0);
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const reduce =
+      typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      setN(target);
+      setDone(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            io.disconnect();
+            const start = performance.now();
+            const dur = 1400;
+            const tick = (t: number) => {
+              const p = Math.min(1, (t - start) / dur);
+              const eased = 1 - Math.pow(1 - p, 3);
+              setN(Math.round(target * eased));
+              if (p < 1) requestAnimationFrame(tick);
+              else setDone(true);
+            };
+            requestAnimationFrame(tick);
+            break;
+          }
+        }
+      },
+      { threshold: 0.5 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [target]);
+
+  return (
+    <span ref={ref} style={done ? undefined : { color: "#059669" }}>
+      {n}
+      {suffix}
+    </span>
+  );
+}
+
+const heroEase = [0.2, 0.8, 0.2, 1] as const;
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -101,29 +201,58 @@ function Index() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center py-24 w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 relative"
-          >
-            <LotusMandala className="absolute top-1/2 left-1/2 -translate-x-[55%] -translate-y-1/2 w-[560px] h-[560px] opacity-[0.12] pointer-events-none z-0" />
+          <div className="lg:col-span-7 relative">
+            <LotusMandala className="hidden md:block absolute top-1/2 left-1/2 -translate-x-[55%] -translate-y-1/2 w-[560px] h-[560px] opacity-[0.12] pointer-events-none z-0" />
             <div className="relative z-10">
-            <span className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-6 inline-flex items-center gap-3">
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: heroEase }}
+              className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-6 inline-flex items-center gap-3"
+            >
               <span className="size-1.5 rounded-full bg-accent pulse-ring" /> Est. Mysuru · Integrated Medical Sciences
-            </span>
+            </motion.span>
             <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.88] text-balance mb-8 tracking-tight font-medium">
-              <span className="block gradient-text">Bluemount</span>
-              <span className="block text-foreground">Hospital</span>
-              <span className="block italic text-gold text-[0.32em] mt-4 font-normal tracking-wide">
+              <motion.span
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.12, ease: heroEase }}
+                className="block gradient-text"
+              >
+                Bluemount
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.24, ease: heroEase }}
+                className="block text-foreground"
+              >
+                Hospital
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.36, ease: heroEase }}
+                className="block italic text-gold text-[0.32em] mt-4 font-normal tracking-wide"
+              >
                 &amp; Research Institute
-              </span>
+              </motion.span>
             </h1>
-            <p className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light">
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
+              className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light"
+            >
               Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Acupuncture and
               chiropractic care — under one integrated roof in Mysuru.
-            </p>
-            <div className="flex flex-wrap gap-5">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
+              className="flex flex-wrap gap-5"
+            >
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
@@ -140,15 +269,17 @@ function Index() {
               >
                 Our Systems
               </motion.a>
-            </div>
+            </motion.div>
             <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
               {[
                 { k: "6", v: "Healing Systems" },
-                { k: "5+", v: "Expert specialists doctors" },
+                { k: "5+", v: "Expert specialist doctors" },
                 { k: "1", v: "Integrated Roof" },
               ].map((s) => (
                 <div key={s.v} className="border-l border-accent/40 pl-4">
-                  <div className="font-serif text-3xl text-gold">{s.k}</div>
+                  <div className="font-serif text-3xl text-gold">
+                    <CountUp value={s.k} />
+                  </div>
                   <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
                     {s.v}
                   </div>
@@ -156,7 +287,7 @@ function Index() {
               ))}
             </div>
             </div>
-          </motion.div>
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
