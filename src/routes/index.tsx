@@ -455,6 +455,9 @@ function Index() {
       </section>
 
       {/* Contact Form Section */}
+      <div className="px-6 max-w-7xl mx-auto py-8 hidden md:block">
+        <EcgDivider />
+      </div>
       <section id="contact" className="relative py-32 px-6 border-t border-border overflow-hidden bg-card">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-grad-radial opacity-60" />
         <div className="relative max-w-7xl mx-auto">
