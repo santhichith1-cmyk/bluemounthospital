@@ -355,6 +355,7 @@ function Index() {
                 className="bg-card p-10 group hover:bg-secondary transition-colors cursor-pointer card-lift relative"
               >
                 <span className="font-mono text-[10px] text-accent mb-8 block">{s.code}</span>
+                <DrawnIcon className="mb-4">{systemIcons[s.slug]}</DrawnIcon>
                 <h3 className="font-serif text-3xl mb-4 group-hover:text-gold transition-colors duration-500">
                   {s.name}
                 </h3>
@@ -395,9 +396,10 @@ function Index() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <Reveal>
               <div className="relative">
+                <BreathingBlob className="absolute -bottom-[10%] -left-[10%] w-[115%] h-[115%] z-0" />
                 <div
                   aria-hidden
-                  className="absolute -inset-6 rounded-full bg-gradient-to-br from-primary/50 via-accent/30 to-transparent blur-2xl"
+                  className="absolute -inset-6 rounded-full bg-gradient-to-br from-primary/50 via-accent/30 to-transparent blur-2xl z-0"
                 />
                 <motion.img
                   whileHover={{ rotate: 2, scale: 1.02 }}
@@ -407,7 +409,7 @@ function Index() {
                   loading="lazy"
                   width={1024}
                   height={1024}
-                  className="relative aspect-square w-full object-cover rounded-full ring-1 ring-accent/30 shadow-2xl"
+                  className="relative z-10 aspect-square w-full object-cover rounded-full ring-1 ring-accent/30 shadow-2xl"
                 />
               </div>
             </Reveal>
