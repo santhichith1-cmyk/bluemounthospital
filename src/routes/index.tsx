@@ -8,6 +8,7 @@ import logo from "@/assets/logo.avif";
 import { systems } from "@/lib/systems";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
+import { LotusMandala } from "@/components/decor/LotusMandala";
 
 export const Route = createFileRoute("/")({
   component: Index,
