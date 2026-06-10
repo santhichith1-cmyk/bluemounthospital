@@ -8,6 +8,7 @@ import logo from "@/assets/logo.avif";
 import { systems } from "@/lib/systems";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
+import { LotusMandala } from "@/components/decor/LotusMandala";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -106,6 +107,8 @@ function Index() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 relative"
           >
+            <LotusMandala className="absolute top-1/2 left-1/2 -translate-x-[55%] -translate-y-1/2 w-[560px] h-[560px] opacity-[0.12] pointer-events-none z-0" />
+            <div className="relative z-10">
             <span className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-6 inline-flex items-center gap-3">
               <span className="size-1.5 rounded-full bg-accent pulse-ring" /> Est. Mysuru · Integrated Medical Sciences
             </span>
@@ -151,6 +154,7 @@ function Index() {
                   </div>
                 </div>
               ))}
+            </div>
             </div>
           </motion.div>
           <motion.div

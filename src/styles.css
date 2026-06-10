@@ -235,3 +235,21 @@
 }
 
 html { scroll-behavior: smooth; }
+
+@keyframes mandala-rotate-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes mandala-rotate-ccw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ring-outer {
+    animation: mandala-rotate-cw 60s linear infinite;
+  }
+  .ring-inner {
+    animation: mandala-rotate-ccw 90s linear infinite;
+  }
+}
