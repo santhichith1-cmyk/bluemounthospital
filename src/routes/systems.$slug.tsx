@@ -57,9 +57,12 @@ function SystemPage() {
               Bluemount Hospital<br /><span className="text-muted-foreground">& Research Institute</span>
             </span>
           </Link>
-          <Link to="/" className="text-[13px] font-medium uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors">
-            ← All Systems
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link to="/" className="hidden sm:inline text-[13px] font-medium uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors min-h-11 items-center">
+              ← All Systems
+            </Link>
+            <a href="/#contact" className="btn-primary-sm">Book Appointment</a>
+          </div>
         </div>
       </nav>
 
