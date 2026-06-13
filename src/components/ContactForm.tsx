@@ -285,15 +285,13 @@ export function ContactForm() {
           </div>
 
           {/* Submit Button */}
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+          <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full px-6 py-3 bg-primary text-primary-foreground font-medium uppercase tracking-widest rounded-lg hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="btn-primary w-full uppercase disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {isSubmitting ? "Sending..." : "Send Message"}
-          </motion.button>
+            {isSubmitting ? "Sending..." : "Send My Message"}
+          </button>
 
           <p className="text-xs text-muted-foreground text-center">
             We'll get back to you within 24 hours. Your information is secure and won't be shared.
