@@ -174,14 +174,10 @@ function SystemPage() {
             <a href="tel:+918618249192" className="font-mono text-lg md:text-xl tracking-tight">
               +91 86182 49192
             </a>
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              href="tel:+918618249192"
-              className="inline-block px-8 py-4 bg-foreground text-background text-sm font-medium uppercase tracking-widest hover:bg-primary transition-colors w-fit shadow-xl shadow-primary/20"
-            >
-              Book Appointment
-            </motion.a>
+            <div className="flex flex-col sm:flex-row gap-3 lg:justify-end">
+              <a href="/#contact" className="btn-primary uppercase">Book Your Consultation</a>
+              <a href="tel:+918618249192" className="btn-secondary uppercase">Call Us Now</a>
+            </div>
           </div>
         </Reveal>
       </section>
