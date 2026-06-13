@@ -236,6 +236,100 @@
 
 html { scroll-behavior: smooth; }
 
+/* ============ Global focus & button system (UX overhaul) ============ */
+@layer base {
+  :focus-visible {
+    outline: 3px solid #059669;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  a, button, [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  /* Brand emerald CTA — used sitewide as the single Primary action */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0 1.75rem;
+    background: #059669;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px -10px rgba(5, 150, 105, 0.55), 0 2px 6px rgba(0,0,0,0.18);
+    transition: background-color .2s ease, transform .2s ease, box-shadow .3s ease;
+  }
+  .btn-primary:hover { background: #047857; box-shadow: 0 14px 36px -8px rgba(5,150,105,0.7); }
+  .btn-primary:active { transform: translateY(1px); }
+
+  /* Secondary — outlined deep navy/indigo */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0 1.75rem;
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #1B3B6F;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    border-radius: 8px;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .btn-secondary:hover { background: rgba(27, 59, 111, 0.18); border-color: #2a5aa8; }
+
+  /* Sticky-header compact CTA */
+  .btn-primary-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 1.1rem;
+    background: #059669;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px -6px rgba(5,150,105,0.6);
+    transition: background-color .2s ease;
+  }
+  .btn-primary-sm:hover { background: #047857; }
+
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 0.25rem;
+    color: oklch(0.82 0.03 280);
+    transition: color .2s ease;
+  }
+  .nav-link:hover { color: var(--foreground); }
+  .nav-link[aria-current="page"] {
+    color: var(--foreground);
+  }
+  .nav-link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 6px;
+    height: 2px;
+    background: #059669;
+  }
+}
+
 @keyframes mandala-rotate-cw {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
