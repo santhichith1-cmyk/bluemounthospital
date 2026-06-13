@@ -600,7 +600,11 @@ function Index() {
         </div>
         <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-foreground/10 flex flex-wrap gap-4 justify-between items-center text-[10px] font-mono uppercase tracking-widest opacity-50">
           <span>© {new Date().getFullYear()} Bluemount Hospital & Research Institute</span>
-          <span className="text-gold">Precision · Presence · Peace</span>
+          <div className="flex gap-6">
+            <Link to="/terms" className="hover:text-gold transition-colors">Terms of Use</Link>
+            <Link to="/privacy" className="hover:text-gold transition-colors">Privacy Policy</Link>
+            <span className="text-gold">Precision · Presence · Peace</span>
+          </div>
         </div>
       </footer>
     </div>
