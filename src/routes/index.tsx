@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react";
+import { Instagram, Menu, X, Phone } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, type ReactNode } from "react";
@@ -117,6 +117,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   const heroRef = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
+  const [menuOpen, setMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroImgY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 80]);
   const heroImgScale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.08]);
@@ -130,17 +131,17 @@ function Index() {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="sticky top-0 z-50 w-full bg-background/70 backdrop-blur-xl border-b border-border"
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3 group">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
+          <a href="#top" aria-label="Bluemount Hospital home" className="flex items-center gap-3 group min-w-0">
             <img
               src={logo}
               alt="Bluemount Hospital"
               width={48}
               height={48}
-              className="size-12 object-contain transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-110 drop-shadow-[0_0_18px_oklch(0.62_0.22_280/0.6)]"
+              className="size-11 shrink-0 object-contain transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-110 drop-shadow-[0_0_18px_oklch(0.62_0.22_280/0.6)]"
             />
             <span
-              className="font-serif text-sm tracking-tight font-semibold uppercase leading-tight hidden sm:block"
+              className="font-serif text-sm tracking-tight font-semibold uppercase leading-tight hidden sm:block truncate"
               style={{ color: "oklch(0.97 0.01 280)" }}
             >
               Bluemount Hospital
@@ -150,28 +151,76 @@ function Index() {
               </span>
             </span>
           </a>
-          <div className="hidden md:flex items-center gap-10 text-[13px] font-medium uppercase tracking-widest text-muted-foreground">
+          <nav aria-label="Primary" className="hidden md:flex items-center gap-8 text-[13px] font-medium uppercase tracking-widest">
             {[
-              { href: "#systems", label: "Systems" },
+              { href: "#top", label: "Home" },
+              { href: "#systems", label: "Treatments" },
+              { href: "#philosophy", label: "Philosophy" },
+              { href: "#contact", label: "Contact" },
+            ].map((l) => (
+              <a key={l.href} href={l.href} className="nav-link">
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <div className="flex items-center gap-2">
+            <a
+              href="tel:+918618249192"
+              aria-label="Call Bluemount Hospital"
+              className="hidden sm:inline-flex items-center justify-center size-11 rounded-full border border-foreground/20 text-foreground hover:border-accent"
+            >
+              <Phone size={18} />
+            </a>
+            <a href="#contact" className="btn-primary-sm">
+              Book Appointment
+            </a>
+            <button
+              type="button"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMenuOpen((v) => !v)}
+              className="md:hidden inline-flex items-center justify-center size-11 rounded-md text-foreground hover:bg-foreground/10"
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
+        </div>
+        {/* Mobile menu */}
+        <div
+          id="mobile-menu"
+          className={`md:hidden overflow-hidden border-t border-border transition-[max-height,opacity] duration-300 ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+        >
+          <nav aria-label="Mobile" className="px-4 py-4 flex flex-col">
+            {[
+              { href: "#top", label: "Home" },
+              { href: "#systems", label: "Treatments" },
               { href: "#philosophy", label: "Philosophy" },
               { href: "#contact", label: "Contact" },
             ].map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="relative hover:text-foreground transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+                onClick={() => setMenuOpen(false)}
+                className="min-h-12 flex items-center text-base font-medium tracking-wide text-foreground border-b border-border/60"
               >
                 {l.label}
               </a>
             ))}
-            <a href="#contact" className="text-foreground font-bold border-b-2 border-primary pb-1">
-              Book Now
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="btn-primary mt-4 w-full"
+            >
+              Book Your Consultation
             </a>
-          </div>
-          <a href="tel:+918618249192" className="hidden sm:flex items-center gap-2 text-sm font-mono font-medium">
-            <span className="inline-block size-2 rounded-full bg-primary pulse-ring" aria-hidden />
-            +91 86182 49192
-          </a>
+            <a
+              href="tel:+918618249192"
+              className="btn-secondary mt-3 w-full"
+            >
+              <Phone size={16} aria-hidden /> Call +91 86182 49192
+            </a>
+          </nav>
         </div>
       </motion.nav>
 
