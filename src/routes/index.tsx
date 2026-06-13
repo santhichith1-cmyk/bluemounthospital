@@ -300,24 +300,14 @@ function Index() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
-              className="flex flex-wrap gap-5"
+              className="flex flex-col sm:flex-row flex-wrap gap-4"
             >
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                href="#contact"
-                className="px-10 py-5 bg-primary text-primary-foreground text-sm font-bold uppercase tracking-widest hover:bg-primary/90 transition-all duration-300 shadow-[0_20px_60px_-15px_oklch(0.62_0.22_280/0.7)] hover:shadow-[0_30px_80px_-15px_oklch(0.62_0.22_280/0.9)] rounded-sm"
-              >
-                Schedule Diagnostic
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                href="#systems"
-                className="px-10 py-5 border border-foreground/30 text-sm font-bold uppercase tracking-widest hover:bg-foreground/5 hover:border-accent text-foreground transition-colors rounded-sm backdrop-blur-sm"
-              >
-                Our Systems
-              </motion.a>
+              <a href="#contact" className="btn-primary w-full sm:w-auto uppercase">
+                Book Your Consultation
+              </a>
+              <a href="tel:+918618249192" className="btn-secondary w-full sm:w-auto uppercase">
+                <Phone size={16} aria-hidden /> Call Us Now
+              </a>
             </motion.div>
             <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
               {[
