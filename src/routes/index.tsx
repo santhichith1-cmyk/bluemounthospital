@@ -12,6 +12,7 @@ import { LotusMandala } from "@/components/decor/LotusMandala";
 import { DrawnIcon } from "@/components/decor/DrawnIcon";
 import { EcgDivider } from "@/components/decor/EcgDivider";
 import { BreathingBlob } from "@/components/decor/BreathingBlob";
+import BlurText from "@/components/ui/BlurText";
 
 const systemIcons: Record<string, ReactNode> = {
   ayurveda: (
