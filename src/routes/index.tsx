@@ -70,8 +70,7 @@ function CountUp({ value }: { value: string }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const reduce =
-      typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
       setN(target);
       setDone(true);
@@ -153,7 +152,10 @@ function Index() {
               </span>
             </span>
           </a>
-          <nav aria-label="Primary" className="hidden md:flex items-center gap-8 text-[13px] font-medium uppercase tracking-widest">
+          <nav
+            aria-label="Primary"
+            className="hidden md:flex items-center gap-8 text-[13px] font-medium uppercase tracking-widest"
+          >
             {[
               { href: "#top", label: "Home" },
               { href: "#systems", label: "Treatments" },
@@ -209,17 +211,10 @@ function Index() {
                 {l.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
-              className="btn-primary mt-4 w-full"
-            >
+            <a href="#contact" onClick={() => setMenuOpen(false)} className="btn-primary mt-4 w-full">
               Book Your Consultation
             </a>
-            <a
-              href="tel:+918618249192"
-              className="btn-secondary mt-3 w-full"
-            >
+            <a href="tel:+918618249192" className="btn-secondary mt-3 w-full">
               <Phone size={16} aria-hidden /> Call +91 86182 49192
             </a>
           </nav>
@@ -255,59 +250,60 @@ function Index() {
           <div className="lg:col-span-7 relative">
             <LotusMandala className="hidden md:block absolute top-1/2 left-1/2 -translate-x-[55%] -translate-y-1/2 w-[560px] h-[560px] opacity-[0.12] pointer-events-none z-0" />
             <div className="relative z-10">
-            <motion.span
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: heroEase }}
-              className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-6 inline-flex items-center gap-3"
-            >
-              <span className="size-1.5 rounded-full bg-accent pulse-ring" /> Est. Mysuru · Integrated Medical Sciences
-            </motion.span>
-            <BlurText
-              text="Bluemount Hospital & Research Institute"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.88] text-balance mb-8 tracking-tight font-medium text-white"
-            />
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
-              className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light"
-            >
-              Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Acupuncture and
-              chiropractic care — under one integrated roof in Mysuru.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
-              className="flex flex-col sm:flex-row flex-wrap gap-4"
-            >
-              <a href="#contact" className="btn-primary w-full sm:w-auto uppercase">
-                Book Your Consultation
-              </a>
-              <a href="tel:+918618249192" className="btn-secondary w-full sm:w-auto uppercase">
-                <Phone size={16} aria-hidden /> Call Us Now
-              </a>
-            </motion.div>
-            <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
-              {[
-                { k: "6", v: "Healing Systems" },
-                { k: "5+", v: "Expert specialist doctors" },
-                { k: "1", v: "Integrated Roof" },
-              ].map((s) => (
-                <div key={s.v} className="border-l border-accent/40 pl-4">
-                  <div className="font-serif text-3xl text-gold">
-                    <CountUp value={s.k} />
+              <motion.span
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: heroEase }}
+                className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-6 inline-flex items-center gap-3"
+              >
+                <span className="size-1.5 rounded-full bg-accent pulse-ring" /> Est. Mysuru · Integrated Medical
+                Sciences
+              </motion.span>
+              <BlurText
+                text="Bluemount Hospital & Research Institute"
+                delay={150}
+                animateBy="words"
+                direction="top"
+                className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.88] text-balance mb-8 tracking-tight font-medium text-white"
+              />
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
+                className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light"
+              >
+                Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Acupuncture and
+                chiropractic care — under one integrated roof in Mysuru.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
+                className="flex flex-col sm:flex-row flex-wrap gap-4"
+              >
+                <a href="#contact" className="btn-primary w-full sm:w-auto uppercase">
+                  Book Your Consultation
+                </a>
+                <a href="tel:+918618249192" className="btn-secondary w-full sm:w-auto uppercase">
+                  <Phone size={16} aria-hidden /> Call Us Now
+                </a>
+              </motion.div>
+              <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
+                {[
+                  { k: "6", v: "Healing Systems" },
+                  { k: "5+", v: "Expert specialist doctors" },
+                  { k: "1", v: "Integrated Roof" },
+                ].map((s) => (
+                  <div key={s.v} className="border-l border-accent/40 pl-4">
+                    <div className="font-serif text-3xl text-gold">
+                      <CountUp value={s.k} />
+                    </div>
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
+                      {s.v}
+                    </div>
                   </div>
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
-                    {s.v}
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
             </div>
           </div>
           <motion.div
@@ -408,19 +404,12 @@ function Index() {
         </div>
       </section>
 
-      {/* Philosophy */} 
-       <div className="relative">
-  <div className="absolute inset-0 z-0 overflow-hidden opacity-[0.4]">
-    style={{ height: '100%', minHeight: '600px' }}
-    <Orb
-      hue={155}
-      hoverIntensity={0.3}
-      rotateOnHover={true}
-      backgroundColor="#0f1a2e"
-    />
-  </div>
-  <section id="philosophy" className="py-32 px-6 relative z-10 overflow-hidden">
-        <section id="philosophy" className="py-32 px-6 relative overflow-hidden">
+      {/* Philosophy */}
+      <div className="relative">
+        <div className="absolute inset-0 z-0 overflow-hidden opacity-[0.4]" style={{ minHeight: "600px" }}>
+          <Orb hue={155} hoverIntensity={0.3} rotateOnHover={true} backgroundColor="#0f1a2e" />
+        </div>
+        <section id="philosophy" className="py-32 px-6 relative z-10 overflow-hidden">
           <div
             aria-hidden
             className="pointer-events-none absolute -bottom-40 -left-40 size-[600px] rounded-full bg-accent/10 blur-3xl"
@@ -454,9 +443,10 @@ function Index() {
                   Bridging <span className="italic text-gold">ancient intuition</span> and modern proof.
                 </h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed font-light text-lg">
-                  Bluemount Hospital & Research Institute was founded on a singular premise: that true healing is neither
-                  purely technological nor purely traditional — it is the synthesis of both. We treat the root cause
-                  through evidence-based natural therapies, medically supervised recovery and advanced diagnostics.
+                  Bluemount Hospital & Research Institute was founded on a singular premise: that true healing is
+                  neither purely technological nor purely traditional — it is the synthesis of both. We treat the root
+                  cause through evidence-based natural therapies, medically supervised recovery and advanced
+                  diagnostics.
                 </p>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4 pb-6 border-b border-border group">
@@ -596,8 +586,12 @@ function Index() {
         <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-foreground/10 flex flex-wrap gap-4 justify-between items-center text-[10px] font-mono uppercase tracking-widest opacity-50">
           <span>© {new Date().getFullYear()} Bluemount Hospital & Research Institute</span>
           <div className="flex gap-6">
-            <Link to="/terms" className="hover:text-gold transition-colors">Terms of Use</Link>
-            <Link to="/privacy" className="hover:text-gold transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-gold transition-colors">
+              Terms of Use
+            </Link>
+            <Link to="/privacy" className="hover:text-gold transition-colors">
+              Privacy Policy
+            </Link>
             <span className="text-gold">Precision · Presence · Peace</span>
           </div>
         </div>
