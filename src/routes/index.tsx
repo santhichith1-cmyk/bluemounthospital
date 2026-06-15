@@ -13,8 +13,7 @@ import { DrawnIcon } from "@/components/decor/DrawnIcon";
 import { EcgDivider } from "@/components/decor/EcgDivider";
 import { BreathingBlob } from "@/components/decor/BreathingBlob";
 import BlurText from "@/components/ui/BlurText";
-import  from "@/components/ui/Orb";
-
+import Orb from "@/components/ui/Orb";
 const systemIcons: Record<string, ReactNode> = {
   ayurveda: (
     <>
