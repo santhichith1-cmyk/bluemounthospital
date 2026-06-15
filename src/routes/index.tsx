@@ -418,7 +418,6 @@ function Index() {
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <Reveal>
                 <div className="relative">
-                  <BreathingBlob className="absolute -bottom-[10%] -left-[10%] w-[115%] h-[115%] z-0" />
                   <div
                     aria-hidden
                     className="absolute -inset-6 rounded-full bg-gradient-to-br from-primary/50 via-accent/30 to-transparent blur-2xl z-0"
