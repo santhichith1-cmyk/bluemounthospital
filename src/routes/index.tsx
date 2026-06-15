@@ -409,72 +409,77 @@ function Index() {
       </section>
 
       {/* Philosophy */}
-      <section id="philosophy" className="py-32 px-6 relative overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-40 -left-40 size-[600px] rounded-full bg-accent/10 blur-3xl"
-        />
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <Reveal>
-              <div className="relative">
-                <BreathingBlob className="absolute -bottom-[10%] -left-[10%] w-[115%] h-[115%] z-0" />
-                <div
-                  aria-hidden
-                  className="absolute -inset-6 rounded-full bg-gradient-to-br from-primary/50 via-accent/30 to-transparent blur-2xl z-0"
-                />
-                <motion.img
-                  whileHover={{ rotate: 2, scale: 1.02 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  src={philosophyImg}
-                  alt="View through a circular clinical window"
-                  loading="lazy"
-                  width={1024}
-                  height={1024}
-                  className="relative z-10 aspect-square w-full object-cover rounded-full ring-1 ring-accent/30 shadow-2xl"
-                />
-              </div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent mb-6 block">
-                — Our Philosophy
-              </span>
-              <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] mb-8">
-                Bridging <span className="italic text-gold">ancient intuition</span> and modern proof.
-              </h2>
-              <p className="text-muted-foreground mb-8 leading-relaxed font-light text-lg">
-                Bluemount Hospital & Research Institute was founded on a singular premise: that true healing is neither
-                purely technological nor purely traditional — it is the synthesis of both. We treat the root cause
-                through evidence-based natural therapies, medically supervised recovery and advanced diagnostics.
-              </p>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 pb-6 border-b border-border group">
-                  <span className="font-mono text-accent pt-1">01</span>
-                  <div>
-                    <h4 className="font-serif text-xl mb-1 group-hover:text-gold transition-colors">
-                      Data-Verified Outcomes
-                    </h4>
-                    <p className="text-sm text-muted-foreground font-light">
-                      Every traditional treatment is tracked via physiological data points.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4 group">
-                  <span className="font-mono text-accent pt-1">02</span>
-                  <div>
-                    <h4 className="font-serif text-xl mb-1 group-hover:text-gold transition-colors">
-                      Holistic Continuity
-                    </h4>
-                    <p className="text-sm text-muted-foreground font-light">
-                      A single patient record shared across all specialist departments.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          </div>
+      <div className="relative">
+        <div className="absolute inset-0 -z-10 opacity-[0.35]">
+          <Orb />
         </div>
-      </section>
+        <section id="philosophy" className="py-32 px-6 relative overflow-hidden">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-40 -left-40 size-[600px] rounded-full bg-accent/10 blur-3xl"
+          />
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+              <Reveal>
+                <div className="relative">
+                  <BreathingBlob className="absolute -bottom-[10%] -left-[10%] w-[115%] h-[115%] z-0" />
+                  <div
+                    aria-hidden
+                    className="absolute -inset-6 rounded-full bg-gradient-to-br from-primary/50 via-accent/30 to-transparent blur-2xl z-0"
+                  />
+                  <motion.img
+                    whileHover={{ rotate: 2, scale: 1.02 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    src={philosophyImg}
+                    alt="View through a circular clinical window"
+                    loading="lazy"
+                    width={1024}
+                    height={1024}
+                    className="relative z-10 aspect-square w-full object-cover rounded-full ring-1 ring-accent/30 shadow-2xl"
+                  />
+                </div>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent mb-6 block">
+                  — Our Philosophy
+                </span>
+                <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] mb-8">
+                  Bridging <span className="italic text-gold">ancient intuition</span> and modern proof.
+                </h2>
+                <p className="text-muted-foreground mb-8 leading-relaxed font-light text-lg">
+                  Bluemount Hospital & Research Institute was founded on a singular premise: that true healing is neither
+                  purely technological nor purely traditional — it is the synthesis of both. We treat the root cause
+                  through evidence-based natural therapies, medically supervised recovery and advanced diagnostics.
+                </p>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4 pb-6 border-b border-border group">
+                    <span className="font-mono text-accent pt-1">01</span>
+                    <div>
+                      <h4 className="font-serif text-xl mb-1 group-hover:text-gold transition-colors">
+                        Data-Verified Outcomes
+                      </h4>
+                      <p className="text-sm text-muted-foreground font-light">
+                        Every traditional treatment is tracked via physiological data points.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 group">
+                    <span className="font-mono text-accent pt-1">02</span>
+                    <div>
+                      <h4 className="font-serif text-xl mb-1 group-hover:text-gold transition-colors">
+                        Holistic Continuity
+                      </h4>
+                      <p className="text-sm text-muted-foreground font-light">
+                        A single patient record shared across all specialist departments.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* Contact Form Section */}
       <div className="px-6 max-w-7xl mx-auto py-8 hidden md:block">
