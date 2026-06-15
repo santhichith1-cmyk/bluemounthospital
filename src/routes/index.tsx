@@ -259,13 +259,17 @@ function Index() {
                 <span className="size-1.5 rounded-full bg-accent pulse-ring" /> Est. Mysuru · Integrated Medical
                 Sciences
               </motion.span>
-              <BlurText
-                text="Bluemount Hospital & Research Institute"
-                delay={150}
-                animateBy="words"
-                direction="top"
-                className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.88] text-balance mb-8 tracking-tight font-medium text-white"
-              />
+              <div className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.88] mb-8 tracking-tight font-medium">
+                <BlurText text="Bluemount" delay={150} animateBy="words" direction="top" className="text-foreground" />
+                <BlurText text="Hospital" delay={300} animateBy="words" direction="top" className="text-gold" />
+                <BlurText
+                  text="& Research Institute"
+                  delay={450}
+                  animateBy="words"
+                  direction="top"
+                  className="italic text-gold text-4xl sm:text-5xl block"
+                />
+              </div>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
