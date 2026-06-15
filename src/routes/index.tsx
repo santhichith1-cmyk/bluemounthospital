@@ -12,6 +12,7 @@ import { LotusMandala } from "@/components/decor/LotusMandala";
 import { DrawnIcon } from "@/components/decor/DrawnIcon";
 import { EcgDivider } from "@/components/decor/EcgDivider";
 import { BreathingBlob } from "@/components/decor/BreathingBlob";
+import BlurText from "@/components/ui/BlurText";
 
 const systemIcons: Record<string, ReactNode> = {
   ayurveda: (
@@ -261,32 +262,13 @@ function Index() {
             >
               <span className="size-1.5 rounded-full bg-accent pulse-ring" /> Est. Mysuru · Integrated Medical Sciences
             </motion.span>
-            <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.88] text-balance mb-8 tracking-tight font-medium">
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.12, ease: heroEase }}
-                className="block gradient-text"
-              >
-                Bluemount
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.24, ease: heroEase }}
-                className="block text-foreground"
-              >
-                Hospital
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.36, ease: heroEase }}
-                className="block italic text-gold text-[0.32em] mt-4 font-normal tracking-wide"
-              >
-                &amp; Research Institute
-              </motion.span>
-            </h1>
+            <BlurText
+              text="Bluemount Hospital & Research Institute"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.88] text-balance mb-8 tracking-tight font-medium text-white"
+            />
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
