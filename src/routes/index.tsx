@@ -408,11 +408,17 @@ function Index() {
         </div>
       </section>
 
-      {/* Philosophy */}
-      <div className="relative">
-        <div className="absolute inset-0 -z-10 opacity-[0.35]">
-          <Orb />
-        </div>
+      {/* Philosophy */} 
+       <div className="relative">
+  <div className="absolute inset-0 z-0 overflow-hidden opacity-[0.4]">
+    <Orb
+      hue={155}
+      hoverIntensity={0.3}
+      rotateOnHover={true}
+      backgroundColor="#0f1a2e"
+    />
+  </div>
+  <section id="philosophy" className="py-32 px-6 relative z-10 overflow-hidden">
         <section id="philosophy" className="py-32 px-6 relative overflow-hidden">
           <div
             aria-hidden
