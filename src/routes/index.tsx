@@ -13,7 +13,7 @@ import { DrawnIcon } from "@/components/decor/DrawnIcon";
 import { EcgDivider } from "@/components/decor/EcgDivider";
 import { BreathingBlob } from "@/components/decor/BreathingBlob";
 import BlurText from "@/components/ui/BlurText";
-import Orb from "@/components/ui/Orb";
+import  from "@/components/ui/Orb";
 
 const systemIcons: Record<string, ReactNode> = {
   ayurveda: (
@@ -411,6 +411,7 @@ function Index() {
       {/* Philosophy */} 
        <div className="relative">
   <div className="absolute inset-0 z-0 overflow-hidden opacity-[0.4]">
+    style={{ height: '100%', minHeight: '600px' }}
     <Orb
       hue={155}
       hoverIntensity={0.3}
