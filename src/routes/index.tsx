@@ -231,7 +231,7 @@ function Index() {
         <header
           id="top"
           ref={heroRef}
-          className="relative min-h-[100dvh] flex items-center px-6 overflow-hidden bg-grad-radial grain"
+          className="relative z-10 min-h-[100dvh] flex items-center px-6 overflow-hidden bg-grad-radial grain"
         >
           {/* floating ambient blobs */}
           <div
