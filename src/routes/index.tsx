@@ -15,6 +15,7 @@ import { BreathingBlob } from "@/components/decor/BreathingBlob";
 import BlurText from "@/components/ui/BlurText";
 import Orb from "@/components/ui/Orb";
 import DarkVeil from "@/components/ui/DarkVeil";
+import RotatingText from "@/components/ui/RotatingText";
 
 
 const systemIcons: Record<string, ReactNode> = {
@@ -277,14 +278,26 @@ function Index() {
                   />
                 </div>
                 <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
-                  className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light"
-                >
-                  Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Acupuncture and
-                  chiropractic care — under one integrated roof in Mysuru.
-                </motion.p>
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
+  className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light"
+>
+  Where advanced modern medicine meets the foundational wisdom of{" "}
+  <RotatingText
+    texts={["Ayurveda", "Siddha Medicine", "Acupuncture", "Keraleya Panchakarma", "Chiropractic Care"]}
+    mainClassName="text-accent font-medium inline-flex"
+    staggerFrom="last"
+    initial={{ y: "100%" }}
+    animate={{ y: 0 }}
+    exit={{ y: "-120%" }}
+    staggerDuration={0.025}
+    splitLevelClassName="overflow-hidden pb-0.5"
+    transition={{ type: "spring", damping: 30, stiffness: 400 }}
+    rotationInterval={2500}
+  />{" "}
+  — under one integrated roof in Mysuru.
+</motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
