@@ -75,6 +75,7 @@ interface DarkVeilProps {
   scanlineFrequency?: number;
   warpAmount?: number;
   resolutionScale?: number;
+  className?: string;
 }
 
 export default function DarkVeil({
@@ -85,6 +86,7 @@ export default function DarkVeil({
   scanlineFrequency = 0,
   warpAmount = 0,
   resolutionScale = 1,
+  className = '',
 }: DarkVeilProps) {
   const ref = useRef<HTMLCanvasElement>(null);
 
