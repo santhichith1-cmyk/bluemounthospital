@@ -224,11 +224,10 @@ function Index() {
       </motion.nav>
 
       {/* Hero */}
-      <div className="relative">
-        <DarkVeil
-          speed={3}
-          className="absolute inset-0 -z-10 opacity-[0.35]"
-        />
+     <div className="relative">
+  <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-[0.35]">
+    <DarkVeil speed={3} />
+  </div>
         <header
           id="top"
           ref={heroRef}
