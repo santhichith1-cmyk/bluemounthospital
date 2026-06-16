@@ -14,6 +14,8 @@ import { EcgDivider } from "@/components/decor/EcgDivider";
 import { BreathingBlob } from "@/components/decor/BreathingBlob";
 import BlurText from "@/components/ui/BlurText";
 import Orb from "@/components/ui/Orb";
+import DarkVeil from "@/components/ui/DarkVeil";
+
 
 const systemIcons: Record<string, ReactNode> = {
   ayurveda: (
