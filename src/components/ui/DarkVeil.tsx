@@ -146,5 +146,5 @@ export default function DarkVeil({
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
 
-  return <canvas ref={ref} className="darkveil-canvas" aria-hidden="true" />;
+  return <canvas ref={ref} className={`darkveil-canvas ${className}`} aria-hidden="true" />;
 }
