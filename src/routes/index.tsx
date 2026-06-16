@@ -14,6 +14,8 @@ import { EcgDivider } from "@/components/decor/EcgDivider";
 import { BreathingBlob } from "@/components/decor/BreathingBlob";
 import BlurText from "@/components/ui/BlurText";
 import Orb from "@/components/ui/Orb";
+import DarkVeil from "@/components/ui/DarkVeil";
+
 
 const systemIcons: Record<string, ReactNode> = {
   ayurveda: (
@@ -222,127 +224,133 @@ function Index() {
       </motion.nav>
 
       {/* Hero */}
-      <header
-        id="top"
-        ref={heroRef}
-        className="relative min-h-[100dvh] flex items-center px-6 overflow-hidden bg-grad-radial grain"
-      >
-        {/* floating ambient blobs */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-32 -left-32 size-[560px] rounded-full bg-primary/30 blur-3xl float-slow"
+      <div className="relative">
+        <DarkVeil
+          speed={3}
+          className="absolute inset-0 -z-10 opacity-[0.35]"
         />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-1/3 -right-32 size-[480px] rounded-full bg-accent/20 blur-3xl float-slower"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "linear-gradient(oklch(0.97 0.01 280 / 0.4) 1px, transparent 1px), linear-gradient(90deg, oklch(0.97 0.01 280 / 0.4) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
-          }}
-        />
+        <header
+          id="top"
+          ref={heroRef}
+          className="relative min-h-[100dvh] flex items-center px-6 overflow-hidden bg-grad-radial grain"
+        >
+          {/* floating ambient blobs */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-32 -left-32 size-[560px] rounded-full bg-primary/30 blur-3xl float-slow"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute top-1/3 -right-32 size-[480px] rounded-full bg-accent/20 blur-3xl float-slower"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-[0.07]"
+            style={{
+              backgroundImage:
+                "linear-gradient(oklch(0.97 0.01 280 / 0.4) 1px, transparent 1px), linear-gradient(90deg, oklch(0.97 0.01 280 / 0.4) 1px, transparent 1px)",
+              backgroundSize: "80px 80px",
+            }}
+          />
 
-        <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center py-24 w-full">
-          <div className="lg:col-span-7 relative">
-            <LotusMandala className="hidden md:block absolute top-1/2 left-1/2 -translate-x-[55%] -translate-y-1/2 w-[560px] h-[560px] opacity-[0.12] pointer-events-none z-0" />
-            <div className="relative z-10">
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: heroEase }}
-                className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-6 inline-flex items-center gap-3"
-              >
-                <span className="size-1.5 rounded-full bg-accent pulse-ring" /> Est. Mysuru · Integrated Medical
-                Sciences
-              </motion.span>
-              <div className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.88] mb-8 tracking-tight font-medium">
-                <BlurText text="Bluemount" delay={150} animateBy="words" direction="top" className="text-foreground" />
-                <BlurText text="Hospital" delay={300} animateBy="words" direction="top" className="text-gold" />
-                <BlurText
-                  text="& Research Institute"
-                  delay={450}
-                  animateBy="words"
-                  direction="top"
-                  className="italic text-gold text-4xl sm:text-5xl block"
-                />
-              </div>
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
-                className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light"
-              >
-                Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Acupuncture and
-                chiropractic care — under one integrated roof in Mysuru.
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
-                className="flex flex-col sm:flex-row flex-wrap gap-4"
-              >
-                <a href="#contact" className="btn-primary w-full sm:w-auto uppercase">
-                  Book Your Consultation
-                </a>
-                <a href="tel:+918618249192" className="btn-secondary w-full sm:w-auto uppercase">
-                  <Phone size={16} aria-hidden /> Call Us Now
-                </a>
-              </motion.div>
-              <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
-                {[
-                  { k: "6", v: "Healing Systems" },
-                  { k: "5+", v: "Expert specialist doctors" },
-                  { k: "1", v: "Integrated Roof" },
-                ].map((s) => (
-                  <div key={s.v} className="border-l border-accent/40 pl-4">
-                    <div className="font-serif text-3xl text-gold">
-                      <CountUp value={s.k} />
+          <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center py-24 w-full">
+            <div className="lg:col-span-7 relative">
+              <LotusMandala className="hidden md:block absolute top-1/2 left-1/2 -translate-x-[55%] -translate-y-1/2 w-[560px] h-[560px] opacity-[0.12] pointer-events-none z-0" />
+              <div className="relative z-10">
+                <motion.span
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, ease: heroEase }}
+                  className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-6 inline-flex items-center gap-3"
+                >
+                  <span className="size-1.5 rounded-full bg-accent pulse-ring" /> Est. Mysuru · Integrated Medical
+                  Sciences
+                </motion.span>
+                <div className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.88] mb-8 tracking-tight font-medium">
+                  <BlurText text="Bluemount" delay={150} animateBy="words" direction="top" className="text-foreground" />
+                  <BlurText text="Hospital" delay={300} animateBy="words" direction="top" className="text-gold" />
+                  <BlurText
+                    text="& Research Institute"
+                    delay={450}
+                    animateBy="words"
+                    direction="top"
+                    className="italic text-gold text-4xl sm:text-5xl block"
+                  />
+                </div>
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
+                  className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light"
+                >
+                  Where advanced modern medicine meets the foundational wisdom of Ayurveda, Siddha, Acupuncture and
+                  chiropractic care — under one integrated roof in Mysuru.
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
+                  className="flex flex-col sm:flex-row flex-wrap gap-4"
+                >
+                  <a href="#contact" className="btn-primary w-full sm:w-auto uppercase">
+                    Book Your Consultation
+                  </a>
+                  <a href="tel:+918618249192" className="btn-secondary w-full sm:w-auto uppercase">
+                    <Phone size={16} aria-hidden /> Call Us Now
+                  </a>
+                </motion.div>
+                <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
+                  {[
+                    { k: "6", v: "Healing Systems" },
+                    { k: "5+", v: "Expert specialist doctors" },
+                    { k: "1", v: "Integrated Roof" },
+                  ].map((s) => (
+                    <div key={s.v} className="border-l border-accent/40 pl-4">
+                      <div className="font-serif text-3xl text-gold">
+                        <CountUp value={s.k} />
+                      </div>
+                      <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
+                        {s.v}
+                      </div>
                     </div>
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
-                      {s.v}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            style={{ y: heroImgY }}
-            className="lg:col-span-5 relative"
-          >
-            <div
-              className="absolute -inset-10 bg-gradient-to-br from-primary/60 via-transparent to-accent/40 blur-3xl rounded-full"
-              aria-hidden
-            />
-            <div className="relative">
-              <motion.img
-                style={{ scale: heroImgScale }}
-                src={heroAtrium}
-                alt="Bluemount Hospital main atrium with daylight and oak furnishings"
-                width={800}
-                height={1024}
-                className="relative w-full aspect-[3/4] object-cover ring-1 ring-accent/30 rounded-sm shadow-2xl"
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              style={{ y: heroImgY }}
+              className="lg:col-span-5 relative"
+            >
+              <div
+                className="absolute -inset-10 bg-gradient-to-br from-primary/60 via-transparent to-accent/40 blur-3xl rounded-full"
+                aria-hidden
               />
-              <div className="absolute -bottom-6 -left-6 bg-background/90 backdrop-blur-xl border border-accent/30 px-6 py-4 rounded-sm shadow-2xl">
-                <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-1">Now Welcoming</div>
-                <div className="font-serif text-lg italic">New patients</div>
+              <div className="relative">
+                <motion.img
+                  style={{ scale: heroImgScale }}
+                  src={heroAtrium}
+                  alt="Bluemount Hospital main atrium with daylight and oak furnishings"
+                  width={800}
+                  height={1024}
+                  className="relative w-full aspect-[3/4] object-cover ring-1 ring-accent/30 rounded-sm shadow-2xl"
+                />
+                <div className="absolute -bottom-6 -left-6 bg-background/90 backdrop-blur-xl border border-accent/30 px-6 py-4 rounded-sm shadow-2xl">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-1">Now Welcoming</div>
+                  <div className="font-serif text-lg italic">New patients</div>
+                </div>
+                <div className="absolute -top-4 -right-4 size-20 rounded-full border border-accent/40 flex items-center justify-center font-mono text-[10px] text-accent uppercase tracking-widest rotate-12 bg-background/40 backdrop-blur">
+                  Estd
+                  <br />
+                  2024
+                </div>
               </div>
-              <div className="absolute -top-4 -right-4 size-20 rounded-full border border-accent/40 flex items-center justify-center font-mono text-[10px] text-accent uppercase tracking-widest rotate-12 bg-background/40 backdrop-blur">
-                Estd
-                <br />
-                2024
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </header>
+            </motion.div>
+          </div>
+        </header>
+      </div>
 
       {/* Healing Systems */}
       <section id="systems" className="py-32 px-6 bg-card border-y border-border relative overflow-hidden">
