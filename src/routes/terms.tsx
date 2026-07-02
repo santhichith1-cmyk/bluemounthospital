@@ -18,7 +18,9 @@ export const Route = createFileRoute("/terms")({
         content:
           "Read the Terms of Use for Bluemount Hospital & Research Institute.",
       },
+      { property: "og:url", content: "https://bluemounthospital.com/terms" },
     ],
+    links: [{ rel: "canonical", href: "https://bluemounthospital.com/terms" }],
   }),
   component: TermsPage,
 });

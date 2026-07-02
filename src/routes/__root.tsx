@@ -12,7 +12,6 @@ import appCss from "../styles.css?url";
 import "@fontsource/cormorant-garamond/400.css";
 import "@fontsource/cormorant-garamond/500.css";
 import "@fontsource/cormorant-garamond/600.css";
-import "@fontsource/cormorant-garamond/700.css";
 import "@fontsource/cormorant-garamond/400-italic.css";
 import "@fontsource/karla/400.css";
 import "@fontsource/karla/500.css";
@@ -95,17 +94,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Advanced diagnostics meets traditional healing. Integrated care across Ayurveda, Siddha, Acupuncture, Chiropractic, Physiotherapy, Rehabilitation and Modern Clinical Medicine.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://bluemounthospital.com" },
+      { property: "og:site_name", content: "Bluemount Hospital & Research Institute" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Bluemount Hospital & Research Institute — Integrated Medical Sciences" },
-      { name: "description", content: "Blue Mountain Care offers integrated healthcare, combining traditional and modern medicine for personalized patient wellness." },
-      { property: "og:description", content: "Blue Mountain Care offers integrated healthcare, combining traditional and modern medicine for personalized patient wellness." },
-      { name: "twitter:description", content: "Blue Mountain Care offers integrated healthcare, combining traditional and modern medicine for personalized patient wellness." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/eff1b85f-3a70-4afd-aae0-812482b4a786/id-preview-7a0a1378--68e2cdae-13fd-42c7-b729-75d540cd2c79.lovable.app-1779645001712.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/eff1b85f-3a70-4afd-aae0-812482b4a786/id-preview-7a0a1378--68e2cdae-13fd-42c7-b729-75d540cd2c79.lovable.app-1779645001712.png" },
+      { property: "og:image", content: "https://bluemounthospital.com/og-image.png" },
+      { name: "twitter:image", content: "https://bluemounthospital.com/og-image.png" },
     ],
     links: [
       { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "canonical", href: "https://bluemounthospital.com" },
       {
         rel: "stylesheet",
         href: appCss,
@@ -115,6 +113,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Hospital",
+          name: "Bluemount Hospital & Research Institute",
+          url: "https://bluemounthospital.com",
+          telephone: "TELEPHONE_PLACEHOLDER",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress:
+              "Ring Road, opposite VTU Mysore Regional Centre, Sathagalli Layout, Rammanahalli",
+            addressLocality: "Mysuru",
+            addressRegion: "Karnataka",
+            postalCode: "PINCODE_PLACEHOLDER",
+            addressCountry: "IN",
+          },
+          medicalSpecialty: [
+            "Ayurveda",
+            "Keraleya Panchakarma",
+            "Siddha Medicine",
+            "Acupuncture",
+            "Chiropractic",
+            "Modern Clinical Medicine",
+          ],
+          hasMap: "https://maps.app.goo.gl/vAiLtyi2LYWG5di89",
+        }),
       },
     ],
   }),
