@@ -18,7 +18,9 @@ export const Route = createFileRoute("/privacy")({
         content:
           "Read the Privacy Policy for Bluemount Hospital & Research Institute.",
       },
+      { property: "og:url", content: "https://bluemounthospital.com/privacy" },
     ],
+    links: [{ rel: "canonical", href: "https://bluemounthospital.com/privacy" }],
   }),
   component: PrivacyPage,
 });
