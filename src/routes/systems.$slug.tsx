@@ -16,14 +16,19 @@ export const Route = createFileRoute("/systems/$slug")({
       ? `${s.name} — Bluemount Hospital & Research Institute`
       : "Department — Bluemount Hospital";
     const description = s?.intro ?? "Integrated medical sciences in Mysuru.";
+    const url = s
+      ? `https://bluemounthospital.com/systems/${s.slug}`
+      : "https://bluemounthospital.com";
     return {
       meta: [
         { title },
         { name: "description", content: description },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
+        { property: "og:url", content: url },
         ...(s ? [{ property: "og:image", content: s.img }] : []),
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   notFoundComponent: () => (
