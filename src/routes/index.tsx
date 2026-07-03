@@ -314,8 +314,8 @@ function Index() {
                 <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
                   {[
                     { k: "6", v: "Healing Systems" },
-                    { k: "5+", v: "Expert specialist doctors" },
-                    { k: "1", v: "Integrated Roof" },
+                    { k: "5+", v: "Specialist Doctors" },
+                    { k: "7", v: "Days OPD Weekly" },
                   ].map((s) => (
                     <div key={s.v} className="border-l border-accent/40 pl-4">
                       <div className="font-serif text-3xl text-gold">
