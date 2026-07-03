@@ -75,7 +75,7 @@
   --secondary: oklch(0.22 0.08 282);               /* #1e1e5a deeper */
   --secondary-foreground: oklch(0.97 0.01 280);
   --muted: oklch(0.22 0.05 282);
-  --muted-foreground: oklch(0.72 0.04 280);
+  --muted-foreground: oklch(0.80 0.04 280);
   --accent: oklch(0.78 0.14 90);                   /* warm gold accent */
   --accent-foreground: oklch(0.13 0.04 280);
   --destructive: oklch(0.65 0.24 27);

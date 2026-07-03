@@ -281,7 +281,7 @@ function Index() {
   initial={{ opacity: 0, y: 30 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
-  className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light"
+  className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-normal"
 >
   Where advanced modern medicine meets the foundational wisdom of{" "}
   <RotatingText
@@ -314,8 +314,8 @@ function Index() {
                 <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
                   {[
                     { k: "6", v: "Healing Systems" },
-                    { k: "5+", v: "Expert specialist doctors" },
-                    { k: "1", v: "Integrated Roof" },
+                    { k: "5+", v: "Specialist Doctors" },
+                    { k: "7", v: "Days OPD Weekly" },
                   ].map((s) => (
                     <div key={s.v} className="border-l border-accent/40 pl-4">
                       <div className="font-serif text-3xl text-gold">
@@ -379,7 +379,7 @@ function Index() {
               <h2 className="font-serif text-5xl md:text-6xl mb-4">
                 Healing <span className="italic text-gold">Systems</span>
               </h2>
-              <p className="text-muted-foreground max-w-sm font-light text-lg">
+              <p className="text-muted-foreground max-w-sm font-normal text-lg">
                 Unified disciplines working in clinical concert.
               </p>
             </div>
@@ -401,7 +401,7 @@ function Index() {
                 <h3 className="font-serif text-3xl mb-4 group-hover:text-gold transition-colors duration-500">
                   {s.name}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6 font-light">{s.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 font-normal">{s.desc}</p>
                 <Link
                   to="/systems/$slug"
                   params={{ slug: s.slug }}
@@ -419,7 +419,7 @@ function Index() {
                     loading="lazy"
                     width={768}
                     height={512}
-                    className="w-full aspect-video object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                    className="w-full aspect-video object-cover opacity-100 grayscale-0 lg:opacity-50 lg:grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   />
                 </div>
               </motion.article>
@@ -465,7 +465,7 @@ function Index() {
                 <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] mb-8">
                   Bridging <span className="italic text-gold">ancient intuition</span> and modern proof.
                 </h2>
-                <p className="text-muted-foreground mb-8 leading-relaxed font-light text-lg">
+                <p className="text-muted-foreground mb-8 leading-relaxed font-normal text-lg">
                   Bluemount Hospital & Research Institute was founded on a singular premise: that true healing is
                   neither purely technological nor purely traditional — it is the synthesis of both. We treat the root
                   cause through evidence-based natural therapies, medically supervised recovery and advanced
@@ -478,7 +478,7 @@ function Index() {
                       <h4 className="font-serif text-xl mb-1 group-hover:text-gold transition-colors">
                         Data-Verified Outcomes
                       </h4>
-                      <p className="text-sm text-muted-foreground font-light">
+                      <p className="text-sm text-muted-foreground font-normal">
                         Every traditional treatment is tracked via physiological data points.
                       </p>
                     </div>
@@ -489,7 +489,7 @@ function Index() {
                       <h4 className="font-serif text-xl mb-1 group-hover:text-gold transition-colors">
                         Holistic Continuity
                       </h4>
-                      <p className="text-sm text-muted-foreground font-light">
+                      <p className="text-sm text-muted-foreground font-normal">
                         A single patient record shared across all specialist departments.
                       </p>
                     </div>
@@ -515,7 +515,7 @@ function Index() {
             <h2 className="font-serif text-5xl md:text-6xl leading-tight mb-4">
               Begin your <span className="italic text-gold">integrated</span> care journey.
             </h2>
-            <p className="text-muted-foreground text-lg font-light">
+            <p className="text-muted-foreground text-lg font-normal">
               Fill out the form below or reach out directly. We're here to answer your questions and help you find the
               right treatment path.
             </p>
@@ -541,7 +541,7 @@ function Index() {
                 <br />& Research Institute
               </span>
             </div>
-            <p className="max-w-xs text-sm text-foreground/50 leading-relaxed font-light">
+            <p className="max-w-xs text-sm text-foreground/50 leading-relaxed font-normal">
               An integrative healthcare and wellness institution in Mysuru combining traditional sciences with modern
               clinical medicine.
             </p>
