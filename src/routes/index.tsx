@@ -419,7 +419,7 @@ function Index() {
                     loading="lazy"
                     width={768}
                     height={512}
-                    className="w-full aspect-video object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                    className="w-full aspect-video object-cover opacity-100 grayscale-0 lg:opacity-50 lg:grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   />
                 </div>
               </motion.article>
