@@ -281,7 +281,7 @@ function Index() {
   initial={{ opacity: 0, y: 30 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
-  className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-light"
+  className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-normal"
 >
   Where advanced modern medicine meets the foundational wisdom of{" "}
   <RotatingText
