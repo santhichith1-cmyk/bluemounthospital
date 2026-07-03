@@ -266,7 +266,7 @@ function Index() {
                   <span className="size-1.5 rounded-full bg-accent pulse-ring" /> Est. Mysuru · Integrated Medical
                   Sciences
                 </motion.span>
-                <div className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.88] mb-8 tracking-tight font-medium">
+                <div className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.98] mb-8 tracking-tight font-medium">
                   <BlurText text="Bluemount" delay={150} animateBy="words" direction="top" className="text-foreground" />
                   <BlurText text="Hospital" delay={300} animateBy="words" direction="top" className="text-gold" />
                   <BlurText
