@@ -26,7 +26,7 @@ export const Route = createFileRoute("/systems/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
-        ...(s ? [{ property: "og:image", content: s.img }] : []),
+        ...(s ? [{ property: "og:image", content: `https://bluemounthospital.com${s.img}` }] : []),
       ],
       links: [{ rel: "canonical", href: url }],
     };
@@ -118,14 +118,17 @@ function SystemPage() {
             <p className="font-serif text-2xl md:text-3xl leading-snug mb-10 text-pretty">
               {system.intro}
             </p>
-            <p className="text-muted-foreground leading-relaxed max-w-2xl">
-              {system.approach}
-            </p>
+            <div className="space-y-5 max-w-2xl text-muted-foreground leading-relaxed">
+              {system.overview.map((para: string) => (
+                <p key={para}>{para}</p>
+              ))}
+              <p>{system.approach}</p>
+            </div>
           </div>
           <aside>
-            <h3 className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-6">
-              Conditions Treated
-            </h3>
+            <h2 className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-6">
+              Conditions We See
+            </h2>
             <ul className="space-y-3">
               {system.conditions.map((c: string, i: number) => (
                 <motion.li
@@ -141,6 +144,10 @@ function SystemPage() {
                 </motion.li>
               ))}
             </ul>
+            <div className="mt-10 border border-accent/30 bg-accent/5 rounded-sm p-5">
+              <h2 className="font-mono text-[11px] uppercase tracking-widest text-accent mb-3">Before You Start</h2>
+              <p className="text-sm leading-relaxed text-muted-foreground">{system.caution}</p>
+            </div>
           </aside>
         </Reveal>
       </section>
@@ -154,9 +161,9 @@ function SystemPage() {
             </span>
           </Reveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
-            {system.treatments.map((t: string, i: number) => (
+            {system.treatments.map((t: { name: string; desc: string }, i: number) => (
               <motion.div
-                key={t}
+                key={t.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
@@ -166,10 +173,60 @@ function SystemPage() {
                 <span className="font-mono text-[10px] text-muted-foreground mb-4 block">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="font-serif text-xl group-hover:text-primary transition-colors duration-500">{t}</p>
+                <h3 className="font-serif text-xl mb-3 group-hover:text-gold transition-colors duration-500">
+                  {t.name}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-24 bg-card border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <h2 className="font-serif text-4xl mb-12">What to expect</h2>
+          </Reveal>
+          <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {system.whatToExpect.map((step: { title: string; desc: string }, i: number) => (
+              <li key={step.title} className="border-t border-accent/40 pt-6">
+                <span className="font-mono text-xs text-accent mb-3 block">
+                  STEP {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-serif text-2xl mb-3">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="px-6 py-24">
+        <div className="max-w-3xl mx-auto">
+          <Reveal>
+            <h2 className="font-serif text-4xl mb-10">Common questions</h2>
+          </Reveal>
+          <div className="border-t border-border">
+            {system.faqs.map((f: { q: string; a: string }) => (
+              <details key={f.q} className="group border-b border-border">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 font-serif text-xl [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <span
+                    aria-hidden
+                    className="font-mono text-accent text-lg transition-transform duration-300 group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="pb-6 text-muted-foreground leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+          <p className="mt-10 text-xs text-muted-foreground leading-relaxed">
+            This page is general information, not medical advice. Whether a treatment is suitable for you can only be
+            decided by a doctor after a consultation.
+          </p>
         </div>
       </section>
 
