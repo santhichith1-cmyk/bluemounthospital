@@ -250,7 +250,7 @@ function Index() {
                   {[
                     { k: "6", v: "Healing Systems" },
                     { k: "5+", v: "Specialist Doctors" },
-                    { k: "7", v: "Days OPD Weekly" },
+                    { k: "6", v: "Days OPD Weekly" },
                   ].map((s) => (
                     <div key={s.v} className="border-l border-accent/40 pl-4">
                       <div className="font-serif text-3xl text-gold">
@@ -509,7 +509,7 @@ function Index() {
                 <span>Saturday</span> <span>09:00 – 18:00</span>
               </div>
               <div className="flex justify-between">
-                <span>Sunday</span> <span>Emergencies Only</span>
+                <span>Sunday</span> <span>Closed</span>
               </div>
             </div>
           </div>

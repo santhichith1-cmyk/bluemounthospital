@@ -157,7 +157,7 @@ export function ContactForm() {
             </div>
             <div className="flex justify-between">
               <span>Sunday</span>
-              <span className="font-medium text-foreground">Emergencies Only</span>
+              <span className="font-medium text-foreground">Closed</span>
             </div>
           </div>
         </div>
