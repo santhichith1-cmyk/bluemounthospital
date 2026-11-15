@@ -8,6 +8,7 @@ import logo from "@/assets/logo.avif";
 import { systems } from "@/lib/systems";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
+import { Reviews } from "@/components/Reviews";
 import { LotusMandala } from "@/components/decor/LotusMandala";
 import { DrawnIcon } from "@/components/decor/DrawnIcon";
 import { EcgDivider } from "@/components/decor/EcgDivider";
@@ -366,6 +367,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <Reviews />
 
       {/* Philosophy */}
       <div className="relative">
