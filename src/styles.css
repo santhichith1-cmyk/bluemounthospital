@@ -410,3 +410,40 @@ html { scroll-behavior: smooth; }
 @media (max-width: 767px) {
   body { padding-bottom: 4.75rem; }
 }
+
+/* ============ Cursor ring (desktop mouse only) ============ */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(241, 201, 97, 0.75); /* brand gold */
+  background: transparent;
+  box-shadow: 0 0 22px rgba(124, 92, 255, 0.35); /* brand violet glow */
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+  transition:
+    opacity 0.25s ease,
+    width 0.25s ease,
+    height 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+.cursor-ring[data-visible="true"] { opacity: 1; }
+.cursor-ring[data-active="true"] {
+  width: 58px;
+  height: 58px;
+  background: rgba(241, 201, 97, 0.12);
+  border-color: rgba(241, 201, 97, 1);
+}
+.cursor-ring[data-pressed="true"] {
+  width: 24px;
+  height: 24px;
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor-ring { display: none; }
+}
