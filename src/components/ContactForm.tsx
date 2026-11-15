@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { WHATSAPP_URL, WhatsAppIcon } from "@/components/WhatsAppButton";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -104,6 +105,23 @@ export function ContactForm() {
               <h4 className="font-medium mb-1">Call Us</h4>
               <p className="text-sm text-muted-foreground">+91 86182 49192</p>
               <p className="text-xs text-muted-foreground mt-1">Available 8:00 AM - 8:00 PM</p>
+            </div>
+          </a>
+
+          {/* WhatsApp */}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-4 group cursor-pointer"
+          >
+            <div className="mt-1 p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+              <WhatsAppIcon size={20} className="text-primary" />
+            </div>
+            <div>
+              <h4 className="font-medium mb-1">WhatsApp</h4>
+              <p className="text-sm text-muted-foreground">+91 86182 49192</p>
+              <p className="text-xs text-muted-foreground mt-1">Message us to book a consultation</p>
             </div>
           </a>
 
