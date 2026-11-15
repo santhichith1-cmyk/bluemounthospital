@@ -15,6 +15,7 @@ import { BreathingBlob } from "@/components/decor/BreathingBlob";
 import Orb from "@/components/ui/Orb";
 import DarkVeil from "@/components/ui/DarkVeil";
 import RotatingText from "@/components/ui/RotatingText";
+import GradientText from "@/components/ui/GradientText";
 
 
 const systemIcons: Record<string, ReactNode> = {
@@ -213,7 +214,7 @@ function Index() {
                     Bluemount
                   </span>
                   <span className="hero-rise block text-gold" style={{ animationDelay: "0.15s" }}>
-                    Hospital
+                    <GradientText glow={0.25}>Hospital</GradientText>
                   </span>
                   <span className="hero-rise block italic text-gold text-4xl sm:text-5xl" style={{ animationDelay: "0.25s" }}>
                     &amp; Research Institute
@@ -312,7 +313,7 @@ function Index() {
                 — The Practice
               </span>
               <h2 className="font-serif text-5xl md:text-6xl mb-4">
-                Healing <span className="italic text-gold">Systems</span>
+                Healing <GradientText className="italic">Systems</GradientText>
               </h2>
               <p className="text-muted-foreground max-w-sm font-normal text-lg">
                 Unified disciplines working in clinical concert.
@@ -398,7 +399,7 @@ function Index() {
                   — Our Philosophy
                 </span>
                 <h2 className="font-serif text-5xl md:text-6xl leading-[1.05] mb-8">
-                  Bridging <span className="italic text-gold">ancient intuition</span> and modern proof.
+                  Bridging <GradientText className="italic">ancient intuition</GradientText> and modern proof.
                 </h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed font-normal text-lg">
                   Bluemount Hospital & Research Institute was founded on a singular premise: that true healing is
@@ -448,7 +449,7 @@ function Index() {
               — Let's Connect
             </span>
             <h2 className="font-serif text-5xl md:text-6xl leading-tight mb-4">
-              Begin your <span className="italic text-gold">integrated</span> care journey.
+              Begin your <GradientText className="italic">integrated</GradientText> care journey.
             </h2>
             <p className="text-muted-foreground text-lg font-normal">
               Fill out the form below or reach out directly. We're here to answer your questions and help you find the
