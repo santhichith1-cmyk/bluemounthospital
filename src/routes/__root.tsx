@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { MobileActionBar } from "@/components/MobileActionBar";
+import { CursorRing } from "@/components/CursorRing";
 import "@fontsource/cormorant-garamond/400.css";
 import "@fontsource/cormorant-garamond/500.css";
 import "@fontsource/cormorant-garamond/600.css";
@@ -192,6 +193,7 @@ function RootComponent() {
       <Outlet />
       <WhatsAppButton />
       <MobileActionBar />
+      <CursorRing />
     </QueryClientProvider>
   );
 }
