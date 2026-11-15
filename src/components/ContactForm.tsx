@@ -9,9 +9,8 @@ import { Mail, Phone, MapPin, CheckCircle, AlertCircle } from "lucide-react";
 // Form validation schema
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
-  email: z.string().email("Invalid email address"),
+  email: z.union([z.literal(""), z.string().email("Invalid email address")]).optional(),
   phone: z.string().regex(/^\+?[\d\s\-()]+$/, "Invalid phone number").min(10),
-  subject: z.string().min(5, "Subject must be at least 5 characters").max(100),
   message: z.string().min(10, "Message must be at least 10 characters").max(2000),
 });
 
@@ -234,23 +233,6 @@ export function ContactForm() {
             )}
           </div>
 
-          {/* Email Field */}
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">
-              Email Address <span className="text-red-500">*</span>
-            </label>
-            <input
-              {...register("email")}
-              type="email"
-              id="email"
-              placeholder="your.email@example.com"
-              className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors"
-            />
-            {errors.email && (
-              <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
-            )}
-          </div>
-
           {/* Phone Field */}
           <div>
             <label htmlFor="phone" className="block text-sm font-medium mb-2">
@@ -268,20 +250,20 @@ export function ContactForm() {
             )}
           </div>
 
-          {/* Subject Field */}
+          {/* Email Field */}
           <div>
-            <label htmlFor="subject" className="block text-sm font-medium mb-2">
-              Subject <span className="text-red-500">*</span>
+            <label htmlFor="email" className="block text-sm font-medium mb-2">
+              Email Address <span className="text-muted-foreground font-normal">(optional)</span>
             </label>
             <input
-              {...register("subject")}
-              type="text"
-              id="subject"
-              placeholder="How can we help?"
+              {...register("email")}
+              type="email"
+              id="email"
+              placeholder="your.email@example.com"
               className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors"
             />
-            {errors.subject && (
-              <p className="text-sm text-red-500 mt-1">{errors.subject.message}</p>
+            {errors.email && (
+              <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
             )}
           </div>
 

@@ -25,7 +25,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Bluemount Hospital on WhatsApp"
-      className="fixed bottom-5 right-5 z-50 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.45)] transition-transform duration-200 hover:scale-110 focus-visible:scale-110"
+      className="fixed bottom-24 right-5 z-50 md:bottom-5 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.45)] transition-transform duration-200 hover:scale-110 focus-visible:scale-110"
     >
       <WhatsAppIcon size={28} />
     </a>

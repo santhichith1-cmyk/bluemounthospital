@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { MobileActionBar } from "@/components/MobileActionBar";
 import "@fontsource/cormorant-garamond/400.css";
 import "@fontsource/cormorant-garamond/500.css";
 import "@fontsource/cormorant-garamond/600.css";
@@ -174,6 +175,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <WhatsAppButton />
+      <MobileActionBar />
     </QueryClientProvider>
   );
 }

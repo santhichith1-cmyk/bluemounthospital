@@ -405,3 +405,8 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   .hero-rise { animation: none; }
 }
+
+/* Room for the fixed mobile Call/Book bar so it never covers the footer */
+@media (max-width: 767px) {
+  body { padding-bottom: 4.75rem; }
+}
