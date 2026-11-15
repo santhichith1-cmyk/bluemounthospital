@@ -1,7 +1,7 @@
 import { Instagram, Menu, X, Phone } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import heroAtrium from "@/assets/hero-atrium-updated.avif";
 import philosophyImg from "@/assets/philosophy.avif";
 import logo from "@/assets/logo.avif";
@@ -12,7 +12,6 @@ import { LotusMandala } from "@/components/decor/LotusMandala";
 import { DrawnIcon } from "@/components/decor/DrawnIcon";
 import { EcgDivider } from "@/components/decor/EcgDivider";
 import { BreathingBlob } from "@/components/decor/BreathingBlob";
-import BlurText from "@/components/ui/BlurText";
 import Orb from "@/components/ui/Orb";
 import DarkVeil from "@/components/ui/DarkVeil";
 import RotatingText from "@/components/ui/RotatingText";
@@ -61,58 +60,6 @@ const systemIcons: Record<string, ReactNode> = {
     </>
   ),
 };
-
-function CountUp({ value }: { value: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const match = value.match(/^(\d+)(.*)$/);
-  const target = match ? parseInt(match[1], 10) : 0;
-  const suffix = match ? match[2] : "";
-  const [n, setN] = useState(0);
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const reduce = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      setN(target);
-      setDone(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            io.disconnect();
-            const start = performance.now();
-            const dur = 1400;
-            const tick = (t: number) => {
-              const p = Math.min(1, (t - start) / dur);
-              const eased = 1 - Math.pow(1 - p, 3);
-              setN(Math.round(target * eased));
-              if (p < 1) requestAnimationFrame(tick);
-              else setDone(true);
-            };
-            requestAnimationFrame(tick);
-            break;
-          }
-        }
-      },
-      { threshold: 0.5 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [target]);
-
-  return (
-    <span ref={ref} style={done ? undefined : { color: "#059669" }}>
-      {n}
-      {suffix}
-    </span>
-  );
-}
-
-const heroEase = [0.2, 0.8, 0.2, 1] as const;
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -257,31 +204,24 @@ function Index() {
             <div className="lg:col-span-7 relative">
               <LotusMandala className="hidden md:block absolute top-1/2 left-1/2 -translate-x-[55%] -translate-y-1/2 w-[560px] h-[560px] opacity-[0.12] pointer-events-none z-0" />
               <div className="relative z-10">
-                <motion.span
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, ease: heroEase }}
-                  className="font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-6 inline-flex items-center gap-3"
-                >
+                <span className="hero-rise font-mono text-[11px] uppercase tracking-[0.4em] text-accent mb-6 inline-flex items-center gap-3">
                   <span className="size-1.5 rounded-full bg-accent pulse-ring" /> Est. Mysuru · Integrated Medical
                   Sciences
-                </motion.span>
-                <div className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9.5rem] leading-[0.98] mb-8 tracking-tight font-medium">
-                  <BlurText text="Bluemount" delay={150} animateBy="words" direction="top" className="text-foreground" />
-                  <BlurText text="Hospital" delay={300} animateBy="words" direction="top" className="text-gold" />
-                  <BlurText
-                    text="& Research Institute"
-                    delay={450}
-                    animateBy="words"
-                    direction="top"
-                    className="italic text-gold text-4xl sm:text-5xl block"
-                  />
-                </div>
-                <motion.p
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
-  className="max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-normal"
+                </span>
+                <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[clamp(5rem,8.2vw,8.5rem)] leading-[0.98] mb-8 tracking-tight font-medium">
+                  <span className="hero-rise block text-foreground" style={{ animationDelay: "0.05s" }}>
+                    Bluemount
+                  </span>
+                  <span className="hero-rise block text-gold" style={{ animationDelay: "0.15s" }}>
+                    Hospital
+                  </span>
+                  <span className="hero-rise block italic text-gold text-4xl sm:text-5xl" style={{ animationDelay: "0.25s" }}>
+                    &amp; Research Institute
+                  </span>
+                </h1>
+                <p
+  className="hero-rise max-w-lg text-xl text-muted-foreground leading-relaxed text-pretty mb-12 font-normal"
+  style={{ animationDelay: "0.35s" }}
 >
   Where advanced modern medicine meets the foundational wisdom of{" "}
   <RotatingText
@@ -297,20 +237,15 @@ function Index() {
     rotationInterval={2500}
   />{" "}
   — under one integrated roof in Mysuru.
-</motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.76, ease: heroEase }}
-                  className="flex flex-col sm:flex-row flex-wrap gap-4"
-                >
+</p>
+                <div className="hero-rise flex flex-col sm:flex-row flex-wrap gap-4" style={{ animationDelay: "0.45s" }}>
                   <a href="#contact" className="btn-primary w-full sm:w-auto uppercase">
                     Book Your Consultation
                   </a>
                   <a href="tel:+918618249192" className="btn-secondary w-full sm:w-auto uppercase">
                     <Phone size={16} aria-hidden /> Call Us Now
                   </a>
-                </motion.div>
+                </div>
                 <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
                   {[
                     { k: "6", v: "Healing Systems" },
@@ -319,7 +254,7 @@ function Index() {
                   ].map((s) => (
                     <div key={s.v} className="border-l border-accent/40 pl-4">
                       <div className="font-serif text-3xl text-gold">
-                        <CountUp value={s.k} />
+                        {s.k}
                       </div>
                       <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
                         {s.v}
