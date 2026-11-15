@@ -1,0 +1,59 @@
+/* Spotlight card: a soft light follows the pointer, with a gold edge
+   that brightens near it. Colours default to the Bluemount palette. */
+.spotlight-card {
+  position: relative;
+  isolation: isolate;
+  --spot-x: 50%;
+  --spot-y: 50%;
+  --spot-color: rgba(124, 92, 255, 0.22); /* brand violet */
+  --spot-edge: rgba(241, 201, 97, 0.85); /* brand gold */
+  --spot-size: 420px;
+}
+
+/* Violet wash behind the content */
+.spotlight-card::before,
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.spotlight-card::before {
+  z-index: -1;
+  background: radial-gradient(
+    var(--spot-size) circle at var(--spot-x) var(--spot-y),
+    var(--spot-color),
+    transparent 70%
+  );
+}
+
+/* Gold 1px edge, only visible near the pointer */
+.spotlight-card::after {
+  z-index: 1;
+  padding: 1px;
+  background: radial-gradient(
+    calc(var(--spot-size) * 0.6) circle at var(--spot-x) var(--spot-y),
+    var(--spot-edge),
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+}
+
+@media (hover: hover) {
+  .spotlight-card:hover::before,
+  .spotlight-card:hover::after,
+  .spotlight-card:focus-within::before,
+  .spotlight-card:focus-within::after {
+    opacity: 1;
+  }
+}

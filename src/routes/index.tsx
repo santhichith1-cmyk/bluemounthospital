@@ -16,6 +16,8 @@ import Orb from "@/components/ui/Orb";
 import DarkVeil from "@/components/ui/DarkVeil";
 import RotatingText from "@/components/ui/RotatingText";
 import GradientText from "@/components/ui/GradientText";
+import { trackSpotlight } from "@/lib/spotlight";
+import "@/components/ui/SpotlightCard.css";
 
 
 const systemIcons: Record<string, ReactNode> = {
@@ -330,7 +332,8 @@ function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.7, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-card p-10 group hover:bg-secondary transition-colors cursor-pointer card-lift relative"
+                onPointerMove={trackSpotlight}
+                className="spotlight-card bg-card p-10 group cursor-pointer card-lift"
               >
                 <span className="font-mono text-[10px] text-accent mb-8 block">{s.code}</span>
                 <DrawnIcon className="mb-4">{systemIcons[s.slug]}</DrawnIcon>
