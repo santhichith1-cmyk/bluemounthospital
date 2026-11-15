@@ -125,14 +125,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Hospital",
           name: "Bluemount Hospital & Research Institute",
           url: "https://bluemounthospital.com",
-          telephone: "TELEPHONE_PLACEHOLDER",
+          telephone: "+918618249192",
+          email: "info@bluemounthospital.com",
           address: {
             "@type": "PostalAddress",
             streetAddress:
               "Ring Road, opposite VTU Mysore Regional Centre, Sathagalli Layout, Rammanahalli",
             addressLocality: "Mysuru",
             addressRegion: "Karnataka",
-            postalCode: "PINCODE_PLACEHOLDER",
+            postalCode: "570019",
             addressCountry: "IN",
           },
           medicalSpecialty: [
@@ -144,6 +145,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "Modern Clinical Medicine",
           ],
           hasMap: "https://maps.app.goo.gl/vAiLtyi2LYWG5di89",
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              opens: "08:00",
+              closes: "20:00",
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: "Saturday",
+              opens: "09:00",
+              closes: "18:00",
+            },
+          ],
+          sameAs: ["https://www.instagram.com/bluemountayush/"],
         }),
       },
     ],
