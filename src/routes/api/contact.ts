@@ -3,9 +3,8 @@ import { z } from "zod";
 
 const contactFormSchema = z.object({
   name: z.string().min(2).max(100),
-  email: z.string().email(),
+  email: z.union([z.literal(""), z.string().email()]).optional(),
   phone: z.string().min(10),
-  subject: z.string().min(5).max(100),
   message: z.string().min(10).max(2000),
 });
 
@@ -26,9 +25,8 @@ export const Route = createFileRoute("/api/contact")({
           const html = `
             <h2>New Contact Form Submission</h2>
             <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
-            <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
+            <p><strong>Email:</strong> ${data.email ? escapeHtml(data.email) : "Not provided"}</p>
             <p><strong>Phone:</strong> ${escapeHtml(data.phone)}</p>
-            <p><strong>Subject:</strong> ${escapeHtml(data.subject)}</p>
             <h3>Message:</h3>
             <p>${escapeHtml(data.message).replace(/\n/g, "<br>")}</p>
           `;
@@ -42,8 +40,8 @@ export const Route = createFileRoute("/api/contact")({
             body: JSON.stringify({
               from: "onboarding@resend.dev",
               to: "bluemountclinic@gmail.com",
-              reply_to: data.email,
-              subject: `New Contact Form: ${data.subject}`,
+              ...(data.email ? { reply_to: data.email } : {}),
+              subject: `New enquiry from ${data.name}`,
               html,
             }),
           });
